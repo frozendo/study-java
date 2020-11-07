@@ -17,6 +17,8 @@ If you want to read the articles related to each version, go to https://medium.c
 * Lambdas
 * Stream and Parallel Streams
 
+More details in [Java 8 definition](definition/Java8.md)
+
 ## Java 9
 
 * Coming Soon
