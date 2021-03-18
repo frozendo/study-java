@@ -7,7 +7,7 @@ public class OptionalExamples {
 
     public static void main(String[] args) {
         Optional<String> opt = Optional.of("Optional string with of");
-        Optional<String> optNotNullable = Optional.ofNullable("Opional string with ofNullable");
+        Optional<String> optNotNullable = Optional.ofNullable("Optional string with ofNullable");
         Optional<String> optNullable = Optional.ofNullable(null);
         Optional<String> empty = Optional.empty();
 
@@ -91,11 +91,11 @@ public class OptionalExamples {
     }
 
     public static void useIfPresent(Optional<String> optional) {
-        optional.ifPresent(s -> System.out.println("Value with ifPresent: " + optional.get()));
+        optional.ifPresent(s -> System.out.println("Value with ifPresent: " + s));
     }
 
     public static void optionalFilter(Optional<String> optional) {
-        Optional<String> optString = optional.filter(s -> Objects.nonNull(s) && !s.isEmpty());
+        Optional<String> optString = optional.filter(s -> s.length() > 25);
         useIsPresent(optString);
     }
 
@@ -109,15 +109,17 @@ public class OptionalExamples {
     }
 
     public static void optionalFlatMap(Optional<String> optional) {
-        Optional<Integer> optFlatMap = optional.flatMap(s -> {
-            if (Objects.nonNull(s) && !s.isEmpty()) {
-                return Optional.of(s.length());
+        Optional<Optional<String>> newOptional = Optional.of(optional);
+
+        Optional<String> optionalResult = newOptional.flatMap(p -> {
+            if (p.isPresent()) {
+                return p;
             }
             return Optional.empty();
         });
 
-        if (optFlatMap.isPresent()) {
-            System.out.println("FlatMap result: " + optFlatMap.get());
+        if (optionalResult.isPresent()) {
+            System.out.println("FlatMap result: " + optionalResult.get());
         } else {
             System.out.println("Length is 0!");
         }
@@ -125,14 +127,14 @@ public class OptionalExamples {
 
     public static void optionalOrElse(Optional<String> optional) {
         String test = optional
-                .filter(s -> Objects.nonNull(s) && !s.isEmpty())
+                .filter(s -> !s.isEmpty())
                 .orElse("Optional empty, execute orElse");
         System.out.println(test);
     }
 
     public static void optionalOrElseGet(Optional<String> optional) {
         String test = optional
-                .filter(s -> Objects.nonNull(s) && !s.isEmpty())
+                .filter(s -> !s.isEmpty())
                 .orElseGet(String::new);
         System.out.println(test.isEmpty() ? "Optional is empty, orElseGet executed" : test);
     }
@@ -140,7 +142,7 @@ public class OptionalExamples {
     public static void optionalOrElseThrow(Optional<String> optional) {
         try {
             String test = optional
-                    .filter(s -> Objects.nonNull(s) && !s.isEmpty())
+                    .filter(s -> !s.isEmpty())
                     .orElseThrow(RuntimeException::new);
             System.out.println(test);
         } catch(Exception e) {

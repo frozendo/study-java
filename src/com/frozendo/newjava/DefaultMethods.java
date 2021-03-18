@@ -3,22 +3,21 @@ package com.frozendo.newjava;
 public class DefaultMethods {
 
     public static void main(String[] args) {
-        SomeClass someClass = new SomeClass();
+        SomeInterface someClass = new SomeClass();
         System.out.println(someClass.printByDefaultMethod());
         System.out.println(someClass.methodToOverride());
         System.out.println(someClass.overrideToAbstract());
 
-        OtherClass otherClass = new OtherClass();
+        OtherInterface otherClass = new OtherClass();
         System.out.println(otherClass.printByDefaultMethod());
         System.out.println(otherClass.methodToOverride());
         System.out.println(otherClass.overrideToAbstract());
-
-
     }
 
 }
 
 interface SomeInterface {
+
     default String printByDefaultMethod() {
         return "Default method example";
     }
@@ -30,6 +29,7 @@ interface SomeInterface {
     default String overrideToAbstract() {
         return "Override to Abstract - Some Interface";
     }
+    
 }
 
 interface OtherInterface extends SomeInterface {
@@ -55,5 +55,6 @@ class OtherClass implements OtherInterface {
     public String overrideToAbstract() {
         return "Method turned in abstract implemented by class";
     }
+
 }
 
