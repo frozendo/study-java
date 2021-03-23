@@ -1,6 +1,5 @@
 package com.frozendo.newjava;
 
-import java.util.Objects;
 import java.util.Optional;
 
 public class OptionalExamples {
