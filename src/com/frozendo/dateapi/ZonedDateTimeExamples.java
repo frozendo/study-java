@@ -4,7 +4,7 @@ import java.time.DayOfWeek;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.TemporalAdjusters;
-QE114241675BR
+
 public class ZonedDateTimeExamples {
 
     public static void main(String[] args) {

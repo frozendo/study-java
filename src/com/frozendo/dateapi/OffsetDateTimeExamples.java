@@ -1,7 +1,6 @@
-package com.frozendo.zonedDateTimeapi;
+package com.frozendo.dateapi;
 
 import java.time.DayOfWeek;
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.temporal.TemporalAdjusters;
