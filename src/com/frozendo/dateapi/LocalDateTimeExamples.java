@@ -15,7 +15,7 @@ public class LocalDateTimeExamples {
         System.out.println("LocalDateTime parse = " + LocalDateTime.parse("2021-03-19T11:44"));
         System.out.println();
 
-        var dateTime = LocalDateTime.now();
+        LocalDateTime dateTime = LocalDateTime.now();
 
         System.out.println("##### LocalDateTime get examples #####");
         System.out.println("Day of Month = " + dateTime.getDayOfMonth());

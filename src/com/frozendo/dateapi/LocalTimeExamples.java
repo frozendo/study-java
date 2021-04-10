@@ -13,7 +13,7 @@ public class LocalTimeExamples {
         System.out.println("LocalTime parse = " + LocalTime.parse("20:30"));
         System.out.println();
 
-        var time = LocalTime.now();
+        LocalTime time = LocalTime.now();
 
         System.out.println("##### LocalTime get examples #####");
         System.out.println("Hour = " + time.getHour());
