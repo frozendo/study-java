@@ -9,7 +9,14 @@ import java.time.Period;
 public class OtherDataExamples {
 
     public static void main(String[] args) throws InterruptedException {
+        OtherDataExamples example = new OtherDataExamples();
 
+        example.instantFunctions();
+        example.periodFunctions();
+        example.durationFunctions();
+    }
+
+    private void instantFunctions() throws InterruptedException {
         System.out.println("##### Instant #####");
         //get instant now
         Instant now = Instant.now();
@@ -27,7 +34,9 @@ public class OtherDataExamples {
 
         System.out.println("Duration of the event = " + Duration.between(initial, end));
         System.out.println();
+    }
 
+    private void periodFunctions() {
         System.out.println("##### Period #####");
 
         Period period = Period.of(2, 5, 20);
@@ -44,18 +53,18 @@ public class OtherDataExamples {
 
         System.out.println("Calculate the difference between two dates = " + Period.between(minusDate, localDate));
         System.out.println();
+    }
 
+    private void durationFunctions() {
         System.out.println("##### Duration #####");
 
-        System.out.println("Duration of days" + Duration.ofDays(10));
+        System.out.println("Duration of days = " + Duration.ofDays(10));
         System.out.println("Duration of hours = " + Duration.ofHours(2));
         System.out.println("Duration of minutes = " + Duration.ofMinutes(20));
         System.out.println("Duration of seconds = " + Duration.ofSeconds(40));
 
         Duration oneHour = Duration.between(LocalTime.now().minusHours(1), LocalTime.now());
         System.out.println("Duration between two times = " + oneHour);
-
-
     }
 
 }
