@@ -45,7 +45,7 @@ public class BiFunctionsExamples {
     }
 
     private void biFunctionExample(List<Product> list) {
-        System.out.println("##### Executando BiConsumer #####");
+        System.out.println("##### Executando BiFunction #####");
         BiFunction<Product, String, String> function =
                 (exampleObject, toConcat) -> exampleObject.getNome().concat(toConcat);
 

@@ -63,7 +63,6 @@ public class FunctionsExamples {
         System.out.println(list.stream().map(function).collect(Collectors.toList()));
 
         System.out.println();
-
     }
 
 }
