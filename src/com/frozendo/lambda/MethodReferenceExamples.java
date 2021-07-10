@@ -1,6 +1,6 @@
 package com.frozendo.lambda;
 
-import com.frozendo.lambda.entity.Produto;
+import com.frozendo.entity.Product;
 
 import java.util.Comparator;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 public class MethodReferenceExamples {
 
     public static void main(String[] args) {
-        List<Produto> list = Produto.buildList();
+        List<Product> list = Product.buildList();
         MethodReferenceExamples example = new MethodReferenceExamples();
         example.methodReferenceStatic(list);
         example.methodReferenceForObject(list);
@@ -17,7 +17,7 @@ public class MethodReferenceExamples {
         example.methodReferenceConstructor(list);
     }
 
-    private void methodReferenceStatic(List<Produto> list) {
+    private void methodReferenceStatic(List<Product> list) {
         System.out.println("##### Usando método estático #####");
 
         list.forEach(MethodReferenceExamples::printProduto);
@@ -26,7 +26,7 @@ public class MethodReferenceExamples {
         System.out.println();
     }
 
-    private void methodReferenceForObject(List<Produto> list) {
+    private void methodReferenceForObject(List<Product> list) {
         System.out.println("##### Usando objeto #####");
 
         ProdutoComparator comparator = new ProdutoComparator();
@@ -35,19 +35,19 @@ public class MethodReferenceExamples {
         System.out.println();
     }
 
-    private void methodReferenceParticularType(List<Produto> list) {
+    private void methodReferenceParticularType(List<Product> list) {
         System.out.println("##### Usando método instância de um objeto #####");
 
-        list.stream().map(Produto::getNome).forEach(System.out::println);
-        list.stream().map(Produto::getPreco).forEach(System.out::println);
+        list.stream().map(Product::getNome).forEach(System.out::println);
+        list.stream().map(Product::getPreco).forEach(System.out::println);
 
         System.out.println();
     }
 
-    private void methodReferenceConstructor(List<Produto> list) {
+    private void methodReferenceConstructor(List<Product> list) {
         System.out.println("##### Usando construtor com method reference #####");
 
-        Supplier<Produto> supplier = Produto::new;
+        Supplier<Product> supplier = Product::new;
 
         System.out.println(supplier.get());
         System.out.println(supplier.get());
@@ -55,13 +55,13 @@ public class MethodReferenceExamples {
         System.out.println();
     }
 
-    private static void printProduto(Produto produto) {
-        System.out.println(produto);
+    private static void printProduto(Product product) {
+        System.out.println(product);
     }
 
-    private class ProdutoComparator implements Comparator<Produto> {
+    private class ProdutoComparator implements Comparator<Product> {
         @Override
-        public int compare(Produto o1, Produto o2) {
+        public int compare(Product o1, Product o2) {
             return o1.getNome().compareTo(o2.getNome());
         }
     }

@@ -1,6 +1,6 @@
 package com.frozendo.lambda;
 
-import com.frozendo.lambda.entity.Produto;
+import com.frozendo.entity.Product;
 
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -10,30 +10,30 @@ import java.util.function.BiPredicate;
 public class BiFunctionsExamples {
 
     public static void main(String[] args) {
-        List<Produto> list = Produto.buildList();
+        List<Product> list = Product.buildList();
         BiFunctionsExamples example = new BiFunctionsExamples();
         example.biConsumerExample(list);
         example.biPredicateExample(list);
         example.biFunctionExample(list);
     }
 
-    private void biConsumerExample(List<Produto> list) {
+    private void biConsumerExample(List<Product> list) {
         System.out.println("##### Executando BiConsumer #####");
-        BiConsumer<Produto, String> consumer =
+        BiConsumer<Product, String> consumer =
                 (produto, toConcat) -> System.out.println(produto.getNome().toUpperCase().concat(toConcat));
 
         int count = 1;
-        for (Produto produto: list) {
-            consumer.accept(produto, " - Exemplo " + count);
+        for (Product product : list) {
+            consumer.accept(product, " - Exemplo " + count);
             count++;
         }
 
         System.out.println();
     }
 
-    private void biPredicateExample(List<Produto> list) {
+    private void biPredicateExample(List<Product> list) {
         System.out.println("##### Executando BiPredicate #####");
-        BiPredicate<Produto, Double> predicate =
+        BiPredicate<Product, Double> predicate =
                 (produto, toCompare) -> produto.getPreco() > toCompare;
 
         System.out.println(predicate.test(list.get(0), 25D));
@@ -44,13 +44,13 @@ public class BiFunctionsExamples {
         System.out.println();
     }
 
-    private void biFunctionExample(List<Produto> list) {
+    private void biFunctionExample(List<Product> list) {
         System.out.println("##### Executando BiConsumer #####");
-        BiFunction<Produto, String, String> function =
+        BiFunction<Product, String, String> function =
                 (exampleObject, toConcat) -> exampleObject.getNome().concat(toConcat);
 
-        for (Produto produto: list) {
-            System.out.println(function.apply(produto, " - Exemplo"));
+        for (Product product : list) {
+            System.out.println(function.apply(product, " - Exemplo"));
         }
 
         System.out.println();

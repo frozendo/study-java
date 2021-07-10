@@ -1,6 +1,6 @@
 package com.frozendo.lambda;
 
-import com.frozendo.lambda.entity.Produto;
+import com.frozendo.entity.Product;
 
 import java.math.BigDecimal;
 import java.util.function.BinaryOperator;
@@ -12,11 +12,11 @@ public class SpecialFunctionsExamples {
 
     public static void main(String[] args) {
 
-        Produto produto = new Produto();
+        Product product = new Product();
 
         System.out.println("##### UnaryOperator example #####");
         UnaryOperator<String> unaryOperator = value -> value.toUpperCase();
-        String unaryOut = unaryOperator.apply(produto.getNome());
+        String unaryOut = unaryOperator.apply(product.getNome());
         System.out.println("Unary Output = " + unaryOut);
         System.out.println();
 

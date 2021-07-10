@@ -1,15 +1,15 @@
-package com.frozendo.lambda.entity;
+package com.frozendo.entity;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Produto {
+public class Product {
 
-    public Produto() {
+    public Product() {
         this(1L, "Construtor Padrão", 10D);
     }
 
-    public Produto(Long id, String nome, Double preco) {
+    public Product(Long id, String nome, Double preco) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
@@ -52,11 +52,11 @@ public class Produto {
                 '}';
     }
 
-    public static List<Produto> buildList() {
-        Produto produto1 = new Produto(1L, "Dado", 22.20D);
-        Produto produto2 = new Produto(2L, "Cabide", 32.40D);
-        Produto produto3 = new Produto(3L, "Bexiga", 12.10D);
-        Produto produto4 = new Produto(4L, "Anel", 58.20D);
-        return Arrays.asList(produto1, produto2, produto3, produto4);
+    public static List<Product> buildList() {
+        Product product1 = new Product(1L, "Dado", 22.20D);
+        Product product2 = new Product(2L, "Cabide", 32.40D);
+        Product product3 = new Product(3L, "Bexiga", 12.10D);
+        Product product4 = new Product(4L, "Anel", 58.20D);
+        return Arrays.asList(product1, product2, product3, product4);
     }
 }
