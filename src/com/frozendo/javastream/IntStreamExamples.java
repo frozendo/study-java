@@ -8,15 +8,15 @@ public class IntStreamExamples {
 
     public static void main(String[] args) {
 
-        IntStreamExamples examples = new IntStreamExamples();
+        IntStreamExamples example = new IntStreamExamples();
 
         int[] numbers = { 22, 72, 1, 99, 49, 22, 101, 33, 87, 110, 8, 7, 15, 2, 99, 101 };
 
-        examples.sortAndPrint(numbers);
-        examples.filterAndFind(numbers);
-        examples.matchExamples(numbers);
-        examples.findAndCalc(numbers);
-        examples.mapExample(numbers);
+        example.sortAndPrint(numbers);
+        example.filterAndFind(numbers);
+        example.matchExamples(numbers);
+        example.findAndCalculate(numbers);
+        example.mapExample(numbers);
 
     }
 
@@ -91,7 +91,7 @@ public class IntStreamExamples {
         System.out.println();
     }
 
-    private void findAndCalc(int[] numbers) {
+    private void findAndCalculate(int[] numbers) {
         System.out.println("##### Filtra numeros multiplos de 2 e conta o total #####");
         long count = IntStream.of(numbers)
                 .filter(p -> p % 2 == 0)

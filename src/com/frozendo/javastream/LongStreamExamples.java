@@ -8,15 +8,15 @@ public class LongStreamExamples {
 
     public static void main(String[] args) {
 
-        LongStreamExamples examples = new LongStreamExamples();
+        LongStreamExamples example = new LongStreamExamples();
 
         long[] numbers = { 22, 72, 1, 99, 49, 22, 101, 33, 87, 110, 8, 7, 15, 2, 99, 101 };
 
-        examples.sortAndPrint(numbers);
-        examples.filterAndFind(numbers);
-        examples.matchExamples(numbers);
-        examples.findAndCalc(numbers);
-        examples.mapExample(numbers);
+        example.sortAndPrint(numbers);
+        example.filterAndFind(numbers);
+        example.matchExamples(numbers);
+        example.findAndCalculate(numbers);
+        example.mapExample(numbers);
 
     }
 
@@ -91,7 +91,7 @@ public class LongStreamExamples {
         System.out.println();
     }
 
-    private void findAndCalc(long[] numbers) {
+    private void findAndCalculate(long[] numbers) {
         System.out.println("##### Filtra numeros multiplos de 2 e conta o total #####");
         long count = LongStream.of(numbers)
                 .filter(p -> p % 2 == 0)
@@ -133,7 +133,7 @@ public class LongStreamExamples {
     }
 
     private void mapExample(long[] numbers) {
-        System.out.println("##### Map transformando pra long #####");
+        System.out.println("##### Map transformando pra double #####");
         LongStream.of(numbers)
                 .mapToDouble(Double::valueOf)
                 .forEach(System.out::println);

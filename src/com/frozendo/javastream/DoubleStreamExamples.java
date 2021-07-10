@@ -7,15 +7,15 @@ public class DoubleStreamExamples {
 
     public static void main(String[] args) {
 
-        DoubleStreamExamples examples = new DoubleStreamExamples();
+        DoubleStreamExamples example = new DoubleStreamExamples();
 
         double[] numbers = { 22.2, 72.5, 1.9, 99.10, 49.5, 22.9, 101, 33.54, 87.99, 110.12, 8.8, 7.87, 15.3, 2.44, 99.10, 101 };
 
-        examples.sortAndPrint(numbers);
-        examples.filterAndFind(numbers);
-        examples.matchExamples(numbers);
-        examples.findAndCalc(numbers);
-        examples.mapExample(numbers);
+        example.sortAndPrint(numbers);
+        example.filterAndFind(numbers);
+        example.matchExamples(numbers);
+        example.findAndCalculate(numbers);
+        example.mapExample(numbers);
 
     }
 
@@ -90,7 +90,7 @@ public class DoubleStreamExamples {
         System.out.println();
     }
 
-    private void findAndCalc(double[] numbers) {
+    private void findAndCalculate(double[] numbers) {
         System.out.println("##### Filtra numeros menor que 5 e conta o total #####");
         long count = DoubleStream.of(numbers)
                 .filter(p -> p < 5)

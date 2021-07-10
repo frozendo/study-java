@@ -11,17 +11,17 @@ public class StreamExamples {
 
     public static void main(String[] args) {
 
-        StreamExamples examples = new StreamExamples();
+        StreamExamples example = new StreamExamples();
 
-        List<String> fruits = Arrays.asList("maçã", "banana", "goiaba", "laranja", "tangerina",
-                "abacaxi", "kiwi", "morango", "melancia", "maçã", "goiaba", "kiwi", "limão");
+        List<String> list = Arrays.asList("Java", "Go", "Javascript", "C#", "Python",
+                "C", "C++", "Rust", "Ruby", "Cobol", "Elixir", "Lua", "F#");
 
-        examples.sortAndPrint(fruits);
-        examples.filterAndFind(fruits);
-        examples.matchExamples(fruits);
-        examples.findAndCalc(fruits);
-        examples.mapExample(fruits);
-        examples.flatMapExample(fruits);
+        example.sortAndPrint(list);
+        example.filterAndFind(list);
+        example.matchExamples(list);
+        example.findAndCalculate(list);
+        example.mapExample(list);
+        example.flatMapExample(list);
 
     }
 
@@ -49,7 +49,7 @@ public class StreamExamples {
     public void filterAndFind(List<String> fruits) {
         System.out.println("##### Filtra palavras e recupera a primeira #####");
         Optional<String> first = fruits.stream()
-                .filter(p -> p.startsWith("l"))
+                .filter(p -> p.startsWith("C"))
                 .findFirst();
         System.out.println(first.orElse(""));
 
@@ -57,7 +57,7 @@ public class StreamExamples {
 
         System.out.println("##### Filtra palavras e recupera a primeira encontrada #####");
         Optional<String> any = fruits.stream()
-                .filter(p -> p.startsWith("l"))
+                .filter(p -> p.startsWith("C"))
                 .sorted(Comparator.comparingInt(String::length))
                 .findAny();
         System.out.println(any.orElse(""));
@@ -68,10 +68,10 @@ public class StreamExamples {
     private void matchExamples(List<String> fruits) {
         System.out.println("##### Any Match #####");
         boolean anyTrue = fruits.stream()
-                .anyMatch(p -> p.startsWith("m"));
+                .anyMatch(p -> p.startsWith("J"));
         System.out.println("AnyMatch should be true = " + anyTrue);
         boolean anyFalse = fruits.stream()
-                .anyMatch(p -> p.startsWith("s"));
+                .anyMatch(p -> p.startsWith("X"));
         System.out.println("AnyMatch should be false = " + anyFalse);
 
         System.out.println();
@@ -81,26 +81,26 @@ public class StreamExamples {
                 .allMatch(p -> p != null);
         System.out.println("AllMatch should be true = " + allTrue);
         boolean allFalse = fruits.stream()
-                .allMatch(p -> p.equals("laranja"));
+                .allMatch(p -> p.equals("Java"));
         System.out.println("AllMatch should be false = " + allFalse);
 
         System.out.println();
 
         System.out.println("##### None Match #####");
         boolean noneTrue = fruits.stream()
-                .noneMatch(p -> p.startsWith("melão"));
+                .noneMatch(p -> p.startsWith("Kafka"));
         System.out.println("NoneMatch should be true = " + noneTrue);
         boolean noneFalse = fruits.stream()
-                .noneMatch(p -> p.equals("laranja"));
+                .noneMatch(p -> p.equals("Java"));
         System.out.println("NoneMatch should be false = " + noneFalse);
 
         System.out.println();
     }
 
-    private void findAndCalc(List<String> fruits) {
+    private void findAndCalculate(List<String> fruits) {
         System.out.println("##### Filtra palavras e calcula o total #####");
         long count = fruits.stream()
-                .filter(p -> p.startsWith("m"))
+                .filter(p -> p.startsWith("C"))
                 .count();
         System.out.println(count);
 
@@ -108,7 +108,7 @@ public class StreamExamples {
 
         System.out.println("##### Pega a maior palavra da lista #####");
         Optional<String> max = fruits.stream()
-                .filter(p -> p.startsWith("m"))
+                .filter(p -> p.startsWith("C"))
                 .max(Comparator.comparingInt(String::length));
         System.out.println(max.orElse(""));
 
@@ -116,7 +116,7 @@ public class StreamExamples {
 
         System.out.println("##### Pega a menor palavra da lista #####");
         Optional<String> min = fruits.stream()
-                .filter(p -> p.startsWith("m"))
+                .filter(p -> p.startsWith("C"))
                 .min(Comparator.comparingInt(String::length));
         System.out.println(min.orElse(""));
 
@@ -141,7 +141,7 @@ public class StreamExamples {
     }
 
     private void flatMapExample(List<String> fruits) {
-        List<String> vegetables = Arrays.asList("beterraba", "cenoura", "batata", "abobrinha", "pepino");
+        List<String> vegetables = Arrays.asList("Rabbit", "Kafka", "JMS", "ActiveMQ", "SQS");
 
         System.out.println("##### Flatmap to string stream - muda de Stream<List<String>> para Stream<String> #####");
         Stream.of(fruits, vegetables)
