@@ -7,10 +7,10 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class GroupCollectorsExample {
+public class GroupCollectorsExamples {
 
     public static void main(String[] args) {
-        GroupCollectorsExample example = new GroupCollectorsExample();
+        GroupCollectorsExamples example = new GroupCollectorsExamples();
 
         System.out.println("##### GroupingBy Examples #####");
         example.simpleGroupingBySplitByDozens();

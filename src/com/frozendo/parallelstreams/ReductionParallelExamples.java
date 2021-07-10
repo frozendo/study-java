@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ReductionsParallelExamples {
+public class ReductionParallelExamples {
 
     public static void main(String[] args) {
-        ReductionsParallelExamples reductionExamples = new ReductionsParallelExamples();
+        ReductionParallelExamples reductionExamples = new ReductionParallelExamples();
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < 1_000_000; i++) {
             list.add(i);

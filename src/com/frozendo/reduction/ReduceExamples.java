@@ -6,26 +6,26 @@ import java.util.List;
 import java.util.Optional;
 import java.util.OptionalDouble;
 
-public class ReductionExamples {
+public class ReduceExamples {
 
     public static void main(String[] args) {
 
-        ReductionExamples reductionExamples = new ReductionExamples();
+        ReduceExamples example = new ReduceExamples();
         List<Product> list = Product.buildList();
 
         System.out.println("#### Simple reduce examples ######");
-        reductionExamples.sumNumbersWithReduce(list);
-        reductionExamples.concatStringWithReduce(list);
+        example.sumNumbersWithReduce(list);
+        example.concatStringWithReduce(list);
         System.out.println();
 
         System.out.println("#### Reduce with identity examples ######");
-        reductionExamples.sumNumbersWithInitialValue(list);
-        reductionExamples.concatStringWithInitialValue(list);
+        example.sumNumbersWithInitialValue(list);
+        example.concatStringWithInitialValue(list);
         System.out.println();
 
         System.out.println("#### Reduce with accumulator e combiner ######");
-        reductionExamples.concatNumbersWithReduce(list);
-        reductionExamples.sumStringLengthWithReduce(list);
+        example.concatNumbersWithReduce(list);
+        example.sumStringLengthWithReduce(list);
     }
 
     public void sumNumbersWithReduce(List<Product> list) {

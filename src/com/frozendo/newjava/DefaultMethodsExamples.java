@@ -1,6 +1,6 @@
 package com.frozendo.newjava;
 
-public class DefaultMethods {
+public class DefaultMethodsExamples {
 
     public static void main(String[] args) {
         SomeInterface someClass = new SomeClass();

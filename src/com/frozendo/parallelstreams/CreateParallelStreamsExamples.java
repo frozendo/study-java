@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class CreateParallelStreams {
+public class CreateParallelStreamsExamples {
 
     public static void main(String[] args) {
-        CreateParallelStreams parallelStreams = new CreateParallelStreams();
+        CreateParallelStreamsExamples parallelStreams = new CreateParallelStreamsExamples();
 
         parallelStreams.createParallelStreamFromCollection();
         parallelStreams.checkSequentialAndParallel();

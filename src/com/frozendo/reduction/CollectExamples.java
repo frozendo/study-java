@@ -19,29 +19,29 @@ import java.util.stream.Stream;
 public class CollectExamples {
 
     public static void main(String[] args) {
-        CollectExamples collectExamples = new CollectExamples();
+        CollectExamples example = new CollectExamples();
         List<Product> products = Product.buildList();
 
         System.out.println("##### Collector with three parameter #####");
-        collectExamples.collectorsSimple(products);
-        collectExamples.collectorsSimpleWithMethodReference();
+        example.collectorsSimple(products);
+        example.collectorsSimpleWithMethodReference();
         System.out.println();
 
         System.out.println("##### Pre existing collectors #####");
-        collectExamples.preDefineCollectorsToList(products);
-        collectExamples.preDefineCollectorsToSet(products);
-        collectExamples.preDefineCollectorsToCollection(products);
-        collectExamples.preDefineCollectorsToMap(products);
-        collectExamples.preDefineCollectorsJoining();
+        example.preDefineCollectorsToList(products);
+        example.preDefineCollectorsToSet(products);
+        example.preDefineCollectorsToCollection(products);
+        example.preDefineCollectorsToMap(products);
+        example.preDefineCollectorsJoining();
         System.out.println();
 
         System.out.println("##### Calculations collectors #####");
-        collectExamples.averageCollectors(products);
-        collectExamples.summingCollectors(products);
-        collectExamples.countingCollectors(products);
-        collectExamples.maxByCollectors(products);
-        collectExamples.minByCollectors(products);
-        collectExamples.summarizingCollectors(products);
+        example.averageCollectors(products);
+        example.summingCollectors(products);
+        example.countingCollectors(products);
+        example.maxByCollectors(products);
+        example.minByCollectors(products);
+        example.summarizingCollectors(products);
         System.out.println();
     }
 
