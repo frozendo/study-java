@@ -3,11 +3,9 @@ Repository to study Java new versions and features.
 
 Each branch has code and examples of features and new Java APIs for your own version.
 
-If you want to read the articles related to each version, go to https://medium.com/@frozendo.
+If you want to read the articles related to each version, go to https://frozendo.medium.com/.
 
 ## Java 8
-
-###### Under construction
 
 * Default Methods
 * Static Methods
@@ -17,11 +15,11 @@ If you want to read the articles related to each version, go to https://medium.c
 * Lambdas
 * Stream and Parallel Streams
 
-For more details, see branch **java-8**
+For more details, see branch [java-8](https://github.com/frozendo/study-java/tree/java-8)
 
 ## Java 9
 
-* Coming Soon
+###### Under construction
 
 ## Java 10
 
