@@ -1,5 +1,8 @@
-package com.frozendo.improvapi;
+package com.frozendo.improvedapi;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -8,6 +11,9 @@ public class FactoriesListExamples {
 
     public static void main(String[] args) {
         FactoriesListExamples execute = new FactoriesListExamples();
+
+        execute.arrayListFactoryPreJava9();
+        execute.createUnmodifiableListPreJava9();
 
         execute.factoryListExample();
         execute.factorySetExample();
@@ -25,6 +31,35 @@ public class FactoriesListExamples {
         execute.factoryListWithNullValue();
         execute.factorySetWithNullValue();
         execute.factoryMapWithNullValue();
+    }
+
+    private void arrayListFactoryPreJava9() {
+        System.out.println("##### Examples pre Java 9 #####");
+        List<String> list = Arrays.asList("value 1", "value 2", "value 3");
+
+        System.out.println("list create with Arrays.asList = " + list);
+    }
+
+    private void createUnmodifiableListPreJava9() {
+        List<String> list = new ArrayList<>();
+        list.add("value 1");
+        list.add("value 2");
+        list.add("value 3");
+
+        List<String> unmodifiable = Collections.unmodifiableList(list);
+
+        System.out.println("Unmodifiable List = " + unmodifiable);
+
+        System.out.println("Try to change the list and catch the error");
+
+        try {
+            unmodifiable.add("new value");
+        } catch (UnsupportedOperationException ex) {
+            System.out.println("Error when try to change unmodifiable list");
+        }
+        System.out.println();
+
+
     }
 
     private void factoryListExample() {
