@@ -1,4 +1,4 @@
-package com.frozendo.improvedapi;
+package com.frozendo.apis;
 
 import jdk.incubator.http.HttpClient;
 import jdk.incubator.http.HttpRequest;

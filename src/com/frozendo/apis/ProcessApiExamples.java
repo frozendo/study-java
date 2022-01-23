@@ -1,4 +1,4 @@
-package com.frozendo.improvedapi;
+package com.frozendo.apis;
 
 import java.io.IOException;
 import java.lang.management.ManagementFactory;

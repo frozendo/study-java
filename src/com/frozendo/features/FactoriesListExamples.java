@@ -1,4 +1,4 @@
-package com.frozendo.improvedapi;
+package com.frozendo.features;
 
 import java.util.ArrayList;
 import java.util.Arrays;
