@@ -31,6 +31,8 @@ public class FactoriesListExamples {
         execute.factoryListWithNullValue();
         execute.factorySetWithNullValue();
         execute.factoryMapWithNullValue();
+
+        execute.factoryValueBased();
     }
 
     private void arrayListFactoryPreJava9() {
@@ -207,6 +209,18 @@ public class FactoriesListExamples {
             System.out.println("NullPointerException when try to create collection with a null value");
         }
         System.out.println();
+    }
+
+    private void factoryValueBased() {
+        List<Integer> list1 = List.of(0, 5, 10);
+        List<Integer> list2 = List.of(0, 5, 10);
+
+        if (list1 == list2) {
+            System.out.println("The reference of list1 and list2 are the same");
+        } else {
+            System.out.println("The reference of list1 and list2 are not the same");
+        }
+
     }
 
 }
