@@ -8,15 +8,15 @@ import java.time.temporal.TemporalAdjusters;
 public class LocalDateTimeExamples {
 
     public static void main(String[] args) {
-        LocalDateTimeExamples example = new LocalDateTimeExamples();
+        LocalDateTimeExamples execute = new LocalDateTimeExamples();
         LocalDateTime dateTime = LocalDateTime.now();
 
-        example.createLocalDateTime();
-        example.localDatetimeGetOpions(dateTime);
-        example.setDateTimeNewValue(dateTime);
-        example.plusDatetime(dateTime);
-        example.minusDatetime(dateTime);
-        example.temporalAdjusters(dateTime);
+        execute.createLocalDateTime();
+        execute.localDatetimeGetOptions(dateTime);
+        execute.setDateTimeNewValue(dateTime);
+        execute.plusDatetime(dateTime);
+        execute.minusDatetime(dateTime);
+        execute.temporalAdjusters(dateTime);
     }
 
     private void createLocalDateTime() {
@@ -35,7 +35,7 @@ public class LocalDateTimeExamples {
         System.out.println();
     }
 
-    private void localDatetimeGetOpions(LocalDateTime dateTime) {
+    private void localDatetimeGetOptions(LocalDateTime dateTime) {
         System.out.println("##### LocalDateTime get examples #####");
         System.out.println("Day of Month = " + dateTime.getDayOfMonth());
         System.out.println("Day of Week = " + dateTime.getDayOfWeek());
@@ -59,7 +59,7 @@ public class LocalDateTimeExamples {
         System.out.println("##### Defining new date value #####");
         System.out.println("Set date to hundredth day of the year = " + dateTime.withDayOfYear(100));
         System.out.println("Set time to 15:29 = " + dateTime.withHour(15).withMinute(59));
-        System.out.println("Set date to 31/12/1990 = " + dateTime.withDayOfMonth(31).withMonth(12).withYear(1990));
+        System.out.println("Set date to 25/12/1990 = " + dateTime.withDayOfMonth(25).withMonth(12).withYear(1990));
         System.out.println();
     }
 

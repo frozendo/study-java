@@ -12,19 +12,19 @@ import java.util.stream.Collectors;
 public class FunctionsExamples {
 
     public static void main(String[] args) {
-        FunctionsExamples example = new FunctionsExamples();
-        example.supplierExample();
+        FunctionsExamples execute = new FunctionsExamples();
+        execute.supplierExample();
 
         List<Product> list = Product.buildList();
 
-        example.consumerExample(list);
-        example.predicateExample(list);
-        example.functionExample(list);
+        execute.consumerExample(list);
+        execute.predicateExample(list);
+        execute.functionExample(list);
     }
 
     private void supplierExample() {
-        System.out.println("##### Criando uma fabrica de objetos com supplier #####");
-        Supplier<Product> supplier = () -> new Product();
+        System.out.println("##### Create a factory of objects with supplier #####");
+        Supplier<Product> supplier = Product::new;
 
         System.out.println(supplier.get());
         System.out.println(supplier.get());
@@ -35,21 +35,19 @@ public class FunctionsExamples {
     }
 
     private void consumerExample(List<Product> list) {
-        System.out.println("##### Executando funções com interface consumer #####");
+        System.out.println("##### Executing functions with consumer interface #####");
 
-        Consumer<Product> consumer = produto -> System.out.print(produto.getNome().toUpperCase());
+        Consumer<Product> consumer = product -> System.out.println(product.getName().toUpperCase());
         list.forEach(consumer);
-        System.out.println();
-        list.stream().peek(consumer);
 
         System.out.println();
     }
 
     private void predicateExample(List<Product> list) {
-        System.out.println("##### Executando verificações com predicate #####");
-        Predicate<Product> predicate = produto -> produto.getPreco() > 25;
+        System.out.println("##### Executing verification with predicate #####");
+        Predicate<Product> predicate = product -> product.getPrice() > 50;
 
-        list.stream().filter(predicate).forEach(item -> System.out.println(item.getNome()));
+        list.stream().filter(predicate).forEach(item -> System.out.println(item.getName()));
         System.out.println();
         System.out.println(list.stream().anyMatch(predicate));
 
@@ -57,8 +55,8 @@ public class FunctionsExamples {
     }
 
     private void functionExample(List<Product> list) {
-        System.out.println("##### Executando interface function #####");
-        Function<Product, String> function = exampleObject -> exampleObject.getNome();
+        System.out.println("##### Executing interface function #####");
+        Function<Product, String> function = Product::getName;
 
         System.out.println(list.stream().map(function).collect(Collectors.toList()));
 

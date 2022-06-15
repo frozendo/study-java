@@ -12,18 +12,18 @@ public class SpecialFunctionsExamples {
 
     public static void main(String[] args) {
         Product product = new Product();
-        SpecialFunctionsExamples example = new SpecialFunctionsExamples();
+        SpecialFunctionsExamples execute = new SpecialFunctionsExamples();
 
-        example.unaryOperator(product);
-        example.binaryOperator();
-        example.functionLongToInt();
-        example.toLongBiFunction();
+        execute.unaryOperator(product);
+        execute.binaryOperator();
+        execute.functionLongToInt();
+        execute.toLongBiFunction();
     }
 
     private void unaryOperator(Product product) {
         System.out.println("##### UnaryOperator example #####");
         UnaryOperator<String> unaryOperator = value -> value.toUpperCase();
-        String unaryOut = unaryOperator.apply(product.getNome());
+        String unaryOut = unaryOperator.apply(product.getName());
         System.out.println("Unary Output = " + unaryOut);
         System.out.println();
     }

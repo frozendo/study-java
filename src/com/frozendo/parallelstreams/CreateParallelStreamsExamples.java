@@ -7,21 +7,24 @@ import java.util.stream.Stream;
 public class CreateParallelStreamsExamples {
 
     public static void main(String[] args) {
-        CreateParallelStreamsExamples parallelStreams = new CreateParallelStreamsExamples();
+        CreateParallelStreamsExamples execute = new CreateParallelStreamsExamples();
 
-        parallelStreams.createParallelStreamFromCollection();
-        parallelStreams.checkSequentialAndParallel();
-        parallelStreams.executeStreamInParallelAndSequential();
+        execute.createParallelStreamFromCollection();
+        execute.executeStreamInParallelAndSequential();
+        execute.checkSequentialAndParallel();
     }
 
-    public void createParallelStreamFromCollection() {
+    private void createParallelStreamFromCollection() {
+        System.out.println("##### Execute collections in parallel stream #####");
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
-        System.out.print("Execute collections in parallel stream = ");
+        System.out.print("output = ");
         list.parallelStream().forEach(System.out::print);
+        System.out.println();
         System.out.println();
     }
 
-    public void executeStreamInParallelAndSequential() {
+    private void executeStreamInParallelAndSequential() {
+        System.out.println("##### Execute a parallel and a sequential stream with same values #####");
         Stream<Integer> toParallel = Stream.of(1, 2, 3, 4, 5, 6, 7, 8)
                 .parallel();
         Stream<Integer> toSequential = Stream.of(1, 2, 3, 4, 5, 6, 7, 8)
@@ -34,9 +37,11 @@ public class CreateParallelStreamsExamples {
         System.out.print("Execute stream sequential = ");
         toSequential.sequential().forEach(System.out::print);
         System.out.println();
+        System.out.println();
     }
 
-    public void checkSequentialAndParallel() {
+    private void checkSequentialAndParallel() {
+        System.out.println("##### Compare parallel and sequential stream #####");
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
         Stream<Integer> sequential = list.stream();
         Stream<Integer> parallel = list.parallelStream();

@@ -11,59 +11,59 @@ public class LambdaExamples {
 
     public static void main(String[] args) {
         List<Product> list = Product.buildList();
-        LambdaExamples example = new LambdaExamples();
+        LambdaExamples execute = new LambdaExamples();
 
-        example.lambdaDeclaretionsType(list);
-        example.lambdasTypeOfReturn(list.get(0));
-        example.executeSimilarInterfaces(list.get(0));
+        execute.lambdaDeclaretionsType(list);
+        execute.lambdasTypeOfReturn(list.get(0));
+        execute.executeSimilarInterfaces(list.get(0));
     }
 
     private void lambdaDeclaretionsType(List<Product> list) {
-        System.out.println("##### Formas de declarar um lambda #####");
+        System.out.println("##### Different ways to declare a lambda function #####");
 
-        System.out.println("Lambda simples");
-        list.forEach((Product product) -> { System.out.println(product.getNome().toUpperCase()); });
+        System.out.println("Simple Lambda");
+        list.forEach((Product product) -> { System.out.println(product.getName().toUpperCase()); });
         System.out.println();
 
-        System.out.println("Parâmetro com o tipo de variável inferido");
-        list.forEach(produto -> { System.out.println(produto.getPreco()); });
+        System.out.println("Parameter with variable type inferred");
+        list.forEach(product -> { System.out.println(product.getPrice()); });
         System.out.println();
 
-        System.out.println("Bloco sem chaves para uma expressão simples");
-        list.forEach(produto -> System.out.println(produto.getNome().toLowerCase()));
+        System.out.println("Block without bracket for a simple expression");
+        list.forEach(product -> System.out.println(product.getName().toLowerCase()));
         System.out.println();
     }
 
     private void lambdasTypeOfReturn(Product product) {
-        System.out.println("##### Formas de retorno de uma lambda #####");
+        System.out.println("##### Different ways of lambda to return values #####");
 
-        System.out.println("Função com unica execução e retorno implicito");
+        System.out.println("Function that execute once and has an implicit return");
         NumberProcess<Double> exampleNumber1 = (value1, value2) -> value1 + value2;
-        System.out.println(exampleNumber1.apply(product.getPreco(), 2D));
+        System.out.println(exampleNumber1.apply(product.getPrice(), 2D));
         System.out.println();
 
-        System.out.println("Função com multiplas execuções e retorno explicito");
+        System.out.println("Function that execute multiple times and has an explicit return");
         NumberProcess<Double> exampleNumber2 = (value1, value2) -> value1 + value2;
-        System.out.println(exampleNumber2.apply(product.getPreco(), 4D));
+        System.out.println(exampleNumber2.apply(product.getPrice(), 4D));
         System.out.println();
     }
 
     private void executeSimilarInterfaces(Product product) {
-        System.out.println("##### Mesma lambda rodando em interfaces diferentes #####");
+        System.out.println("##### Same lambda function run in different interfaces #####");
 
-        System.out.println("Executa método sem retorno");
+        System.out.println("Execute method without return");
         executeString((String value) -> {
                 value = value.toUpperCase();
                 value.trim();
-            }, product.getNome());
+            }, product.getName());
         System.out.println();
 
-        System.out.println("Executa método com retorno");
+        System.out.println("Execute method with return");
         String output = executeString((String value) -> {
                 value = value.toUpperCase();
                 return value.trim();
-            }, product.getNome());
-        System.out.println("Retorno lambda = " + output);
+            }, product.getName());
+        System.out.println("Lambda return = " + output);
         System.out.println();
     }
 

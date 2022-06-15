@@ -10,34 +10,34 @@ public class ReduceExamples {
 
     public static void main(String[] args) {
 
-        ReduceExamples example = new ReduceExamples();
+        ReduceExamples execute = new ReduceExamples();
         List<Product> list = Product.buildList();
 
         System.out.println("#### Simple reduce examples ######");
-        example.sumNumbersWithReduce(list);
-        example.concatStringWithReduce(list);
+        execute.sumNumbersWithReduce(list);
+        execute.concatStringWithReduce(list);
         System.out.println();
 
         System.out.println("#### Reduce with identity examples ######");
-        example.sumNumbersWithInitialValue(list);
-        example.concatStringWithInitialValue(list);
+        execute.sumNumbersWithInitialValue(list);
+        execute.concatStringWithInitialValue(list);
         System.out.println();
 
         System.out.println("#### Reduce with accumulator e combiner ######");
-        example.concatNumbersWithReduce(list);
-        example.sumStringLengthWithReduce(list);
+        execute.concatNumbersWithReduce(list);
+        execute.sumStringLengthWithReduce(list);
     }
 
     public void sumNumbersWithReduce(List<Product> list) {
         OptionalDouble total = list.stream()
-                .mapToDouble(Product::getPreco)
+                .mapToDouble(Product::getPrice)
                 .reduce((sum, value) -> sum + value);
         System.out.println("Reduce sum result = " + total.getAsDouble());
     }
 
     public void concatStringWithReduce(List<Product> list) {
         Optional<String> result = list.stream()
-                .map(i -> i.getNome())
+                .map(i -> i.getName())
                 .reduce((word, value) -> word.concat(" ").concat(value));
 
         System.out.println("Reduce concat result = " + result.get());
@@ -45,14 +45,14 @@ public class ReduceExamples {
 
     public void sumNumbersWithInitialValue(List<Product> list) {
         Double total = list.stream()
-                .map(i -> i.getPreco())
+                .map(i -> i.getPrice())
                 .reduce(100.0, (sum, value) -> sum + value);
         System.out.println("Sum initiate with 100 = " + total);
     }
 
     public void concatStringWithInitialValue(List<Product> list) {
         String result = list.stream()
-                .map(i -> i.getNome())
+                .map(i -> i.getName())
                 .reduce("Concat with initiate value = ", (word, value) -> word.concat(" ").concat(value));
 
         System.out.println(result);
@@ -70,7 +70,7 @@ public class ReduceExamples {
 
     public void sumStringLengthWithReduce(List<Product> list) {
         Integer result = list.stream()
-                .map(i -> i.getNome())
+                .map(i -> i.getName())
                 .reduce(0,
                         (sum, value) -> sum + value.length(),
                         (value1, value2) -> value1 + value2);

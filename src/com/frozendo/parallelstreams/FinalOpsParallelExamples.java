@@ -9,18 +9,18 @@ import java.util.stream.Collectors;
 public class FinalOpsParallelExamples {
 
     public static void main(String[] args) {
-        FinalOpsParallelExamples opsParallelExamples = new FinalOpsParallelExamples();
+        FinalOpsParallelExamples execute = new FinalOpsParallelExamples();
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < 1_000_000; i++) {
+        for (int i = 0; i < 60_000; i++) {
             list.add(i);
         }
 
-        opsParallelExamples.filterExample(list);
-        opsParallelExamples.mapExample(list);
-        opsParallelExamples.forEachExample(list);
+        execute.filterMethodInParallelStream(list);
+        execute.mapMethodInParallelStream(list);
+        execute.forMethodInParallelStream(list);
     }
 
-    public void filterExample(List<Integer> list) {
+    private void filterMethodInParallelStream(List<Integer> list) {
         System.out.println("##### filter #####");
 
         Instant sequentialStart = Instant.now();
@@ -44,7 +44,7 @@ public class FinalOpsParallelExamples {
         System.out.println();
     }
 
-    public void mapExample(List<Integer> list) {
+    private void mapMethodInParallelStream(List<Integer> list) {
         System.out.println("##### map #####");
 
         Instant sequentialStart = Instant.now();
@@ -68,7 +68,7 @@ public class FinalOpsParallelExamples {
         System.out.println();
     }
 
-    public void forEachExample(List<Integer> list) {
+    private void forMethodInParallelStream(List<Integer> list) {
         System.out.println("##### forEach #####");
         List<Integer> resultSequential = new ArrayList<>();
         List<Integer> resultParallel = new ArrayList<>();

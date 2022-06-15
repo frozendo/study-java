@@ -6,14 +6,14 @@ import java.time.temporal.ChronoField;
 public class LocalTimeExamples {
 
     public static void main(String[] args) {
-        LocalTimeExamples example = new LocalTimeExamples();
+        LocalTimeExamples execute = new LocalTimeExamples();
         LocalTime time = LocalTime.now();
 
-        example.createLocalTime();
-        example.timeGetOptions(time);
-        example.setTimeNewValue(time);
-        example.plusValue(time);
-        example.minusValue(time);
+        execute.createLocalTime();
+        execute.timeGetOptions(time);
+        execute.setTimeNewValue(time);
+        execute.plusValue(time);
+        execute.minusValue(time);
     }
 
     private void createLocalTime() {

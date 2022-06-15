@@ -8,24 +8,25 @@ import java.time.temporal.TemporalAdjusters;
 public class OffsetDateTimeExamples {
 
     public static void main(String[] args) {
-        OffsetDateTimeExamples example = new OffsetDateTimeExamples();
+        OffsetDateTimeExamples execute = new OffsetDateTimeExamples();
 
-        example.chicagoOffsetOperations();
+        execute.chicagoOffsetOperations();
 
         //Get Paris Time and use in common operations
         ZoneOffset parisOffset = ZoneOffset.of("+01:00");
         OffsetDateTime parisTime = OffsetDateTime.now(parisOffset);
         System.out.println("Datetime now in Paris = " + parisTime);
 
-        example.offsetGetOptions(parisTime);
-        example.offsetSetNewValue(parisTime);
-        example.plusValue(parisTime);
-        example.minusValue(parisTime);
-        example.temporalAdjusters(parisTime);
+        execute.offsetGetOptions(parisTime);
+        execute.offsetSetNewValue(parisTime);
+        execute.plusValue(parisTime);
+        execute.minusValue(parisTime);
+        execute.temporalAdjusters(parisTime);
 
     }
 
     private void chicagoOffsetOperations() {
+        System.out.println("##### Execute operations with chicago offset #####");
         ZoneOffset zoneOffset = ZoneOffset.of("-05:00");
         OffsetDateTime chigagoTime = OffsetDateTime.now(zoneOffset);
         System.out.println("Datetime now in Chicago = " + chigagoTime);
@@ -67,7 +68,7 @@ public class OffsetDateTimeExamples {
     }
 
     private void temporalAdjusters(OffsetDateTime parisTime) {
-        System.out.println("##### Temporal Adjusters examples #####");
+        System.out.println("##### Temporal Adjusters examples with Paris time #####");
         System.out.println("Get last day of the month = " + parisTime.with(TemporalAdjusters.lastDayOfMonth()));
         System.out.println("Get first day of the year = " + parisTime.with(TemporalAdjusters.firstDayOfYear()));
         System.out.println("Get the day of next friday = " + parisTime.with(TemporalAdjusters.next(DayOfWeek.FRIDAY)));

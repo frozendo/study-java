@@ -1,8 +1,8 @@
 package com.frozendo.lambda.interfaces;
 
 /**
- * Para criar sua propria interface funcional,
- * basta criar uma interface simples com um unico método abstrato.
+ * To create a functional interface,
+ * we only need a simple interface with a single abstract method
  */
 public interface StringProcess {
 

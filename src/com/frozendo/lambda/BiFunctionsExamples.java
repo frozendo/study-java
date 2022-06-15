@@ -11,20 +11,20 @@ public class BiFunctionsExamples {
 
     public static void main(String[] args) {
         List<Product> list = Product.buildList();
-        BiFunctionsExamples example = new BiFunctionsExamples();
-        example.biConsumerExample(list);
-        example.biPredicateExample(list);
-        example.biFunctionExample(list);
+        BiFunctionsExamples execute = new BiFunctionsExamples();
+        execute.biConsumerExample(list);
+        execute.biPredicateExample(list);
+        execute.biFunctionExample(list);
     }
 
     private void biConsumerExample(List<Product> list) {
-        System.out.println("##### Executando BiConsumer #####");
+        System.out.println("##### Executing a BiConsumer #####");
         BiConsumer<Product, String> consumer =
-                (produto, toConcat) -> System.out.println(produto.getNome().toUpperCase().concat(toConcat));
+                (product, toConcat) -> System.out.println(product.getName().toUpperCase().concat(toConcat));
 
         int count = 1;
         for (Product product : list) {
-            consumer.accept(product, " - Exemplo " + count);
+            consumer.accept(product, " - Example " + count);
             count++;
         }
 
@@ -32,25 +32,25 @@ public class BiFunctionsExamples {
     }
 
     private void biPredicateExample(List<Product> list) {
-        System.out.println("##### Executando BiPredicate #####");
+        System.out.println("##### Executing a BiPredicate #####");
         BiPredicate<Product, Double> predicate =
-                (produto, toCompare) -> produto.getPreco() > toCompare;
+                (product, toCompare) -> product.getPrice() > toCompare;
 
-        System.out.println(predicate.test(list.get(0), 25D));
-        System.out.println(predicate.test(list.get(1), 25D));
-        System.out.println(predicate.test(list.get(2), 25D));
-        System.out.println(predicate.test(list.get(3), 25D));
+        for (Product product : list) {
+            var result = predicate.test(product, 250D);
+            System.out.println("The price of the product id: " + product.getId() + " is bigger than 250,00? = " + result);
+        }
 
         System.out.println();
     }
 
     private void biFunctionExample(List<Product> list) {
-        System.out.println("##### Executando BiFunction #####");
+        System.out.println("##### Executing a BiFunction #####");
         BiFunction<Product, String, String> function =
-                (exampleObject, toConcat) -> exampleObject.getNome().concat(toConcat);
+                (exampleObject, toConcat) -> exampleObject.getName().concat(toConcat);
 
         for (Product product : list) {
-            System.out.println(function.apply(product, " - Exemplo"));
+            System.out.println(function.apply(product, " - Example"));
         }
 
         System.out.println();

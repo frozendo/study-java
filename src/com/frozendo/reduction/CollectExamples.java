@@ -13,79 +13,83 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class CollectExamples {
 
     public static void main(String[] args) {
-        CollectExamples example = new CollectExamples();
+        CollectExamples execute = new CollectExamples();
         List<Product> products = Product.buildList();
 
         System.out.println("##### Collector with three parameter #####");
-        example.collectorsSimple(products);
-        example.collectorsSimpleWithMethodReference();
+        execute.collectorsSimple(products);
+        execute.collectorsSimpleWithMethodReference(products);
         System.out.println();
 
-        System.out.println("##### Pre existing collectors #####");
-        example.preDefineCollectorsToList(products);
-        example.preDefineCollectorsToSet(products);
-        example.preDefineCollectorsToCollection(products);
-        example.preDefineCollectorsToMap(products);
-        example.preDefineCollectorsJoining();
+        System.out.println("##### Pre defined collectors #####");
+        execute.preDefineCollectorsToList(products);
+        execute.preDefineCollectorsToSet(products);
+        execute.preDefineCollectorsToCollection(products);
+        execute.preDefineCollectorsToMap(products);
+        execute.preDefineCollectorsJoining();
         System.out.println();
 
         System.out.println("##### Calculations collectors #####");
-        example.averageCollectors(products);
-        example.summingCollectors(products);
-        example.countingCollectors(products);
-        example.maxByCollectors(products);
-        example.minByCollectors(products);
-        example.summarizingCollectors(products);
+        execute.averageCollectors(products);
+        execute.summingCollectors(products);
+        execute.countingCollectors(products);
+        execute.maxByCollectors(products);
+        execute.minByCollectors(products);
+        execute.summarizingCollectors(products);
         System.out.println();
     }
 
     public void collectorsSimple(List<Product> products) {
+        System.out.println("Collector with lambda function");
         List<String> list = products.stream()
                 .collect(
                         () -> new ArrayList<>(),
-                        (l, i) -> l.add(i.getNome()),
+                        (l, i) -> l.add(i.getName()),
                         (l1, l2) -> l1.addAll(l2)
                 );
 
         System.out.println("list result size = " + list.size());
     }
 
-    public void collectorsSimpleWithMethodReference() {
-        List<Integer> list = IntStream.of(1, 2, 3, 4, 5, 6, 7, 8)
+    public void collectorsSimpleWithMethodReference(List<Product> products) {
+        System.out.println("Collector with method reference");
+        List<Product> list = products.stream()
                 .collect(ArrayList::new,ArrayList::add, ArrayList::addAll);
 
         System.out.println("list result size = " + list.size());
     }
 
     public void preDefineCollectorsToList(List<Product> products) {
+        System.out.println("toList collector");
         List<Double> list = products.stream()
-                .map(i -> i.getPreco())
+                .map(i -> i.getPrice())
                 .collect(Collectors.toList());
 
         System.out.println("list result size = " + list.size());
     }
 
     public void preDefineCollectorsToSet(List<Product> products) {
+        System.out.println("toSet collector");
         Set<String> set = products.stream()
-                .map(i -> i.getNome())
+                .map(i -> i.getName())
                 .collect(Collectors.toSet());
 
         System.out.println("set result size = " + set.size());
     }
 
     public void preDefineCollectorsToCollection(List<Product> products) {
+        System.out.println("toCollection collector - create a LinkedHashSet and a LinkedList");
         Set<Double> set = products.stream()
-                .map(i -> i.getPreco())
+                .map(i -> i.getPrice())
                 .collect(Collectors.toCollection(LinkedHashSet::new));
 
         List<String> list = products.stream()
-                .map(i -> i.getNome())
+                .map(i -> i.getName())
                 .collect(Collectors.toCollection(LinkedList::new));
 
         System.out.println("set result size = " + set.size());
@@ -93,17 +97,19 @@ public class CollectExamples {
     }
 
     public void preDefineCollectorsToMap(List<Product> products) {
+        System.out.println("simple toMap collector");
         Map<Double, String> map = products.stream()
                 .collect(Collectors.toMap(
-                        Product::getPreco, Product::getNome
+                        Product::getPrice, Product::getName
                 ));
 
         System.out.println("map result size = " + map.size());
 
+        System.out.println("toMap collector - with merge function");
         Map<Long, Double> otherMap = products.stream()
                 .collect(Collectors.toMap(
                         Product::getId,
-                        Product::getPreco,
+                        Product::getPrice,
                         (existing, replacement) -> {
                             if (existing > replacement) {
                                 return existing;
@@ -117,6 +123,7 @@ public class CollectExamples {
     }
 
     public void preDefineCollectorsJoining() {
+        System.out.println("joining collector");
         String result = Stream.of("Example", "of", "using", "exists", "collectors")
                 .collect(Collectors.joining());
 
@@ -135,7 +142,7 @@ public class CollectExamples {
     public void summingCollectors(List<Product> products) {
         Double collect = products.stream()
                 .collect(Collectors.summingDouble(
-                        Product::getPreco
+                        Product::getPrice
                 ));
 
         System.out.println("summingDouble result = " + collect);
@@ -151,7 +158,7 @@ public class CollectExamples {
     public void maxByCollectors(List<Product> products) {
         Optional<Product> collect = products.stream()
                 .collect(Collectors.maxBy(Comparator.comparing(
-                        (value) -> value.getPreco()
+                        (value) -> value.getPrice()
                 )));
 
         System.out.println("maxBy result = " + collect.get());
@@ -160,10 +167,10 @@ public class CollectExamples {
     public void minByCollectors(List<Product> products) {
         Optional<Product> collect = products.stream()
                 .collect(Collectors.minBy(Comparator.comparing(
-                        (value) -> value.getPreco()
+                        (value) -> value.getPrice()
                 )));
 
-        System.out.println("maxBy result = " + collect.get());
+        System.out.println("minBy result = " + collect.get());
     }
 
     public void summarizingCollectors(List<Product> products) {

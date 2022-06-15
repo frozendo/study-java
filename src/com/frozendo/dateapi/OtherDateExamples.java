@@ -6,14 +6,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
 
-public class OtherDataExamples {
+public class OtherDateExamples {
 
     public static void main(String[] args) throws InterruptedException {
-        OtherDataExamples example = new OtherDataExamples();
+        OtherDateExamples execute = new OtherDateExamples();
 
-        example.instantFunctions();
-        example.periodFunctions();
-        example.durationFunctions();
+        execute.instantFunctions();
+        execute.periodFunctions();
+        execute.durationFunctions();
     }
 
     private void instantFunctions() throws InterruptedException {
@@ -23,16 +23,16 @@ public class OtherDataExamples {
         System.out.println("Instant now = " + now);
 
         //get instant form a point in time
-        //the parameter determines how many seconds seconds since 01/01/1970
+        //the parameter determines how many seconds since 01/01/1970
         Instant epochSecond = Instant.ofEpochSecond(200000000);
-        System.out.println("Instant now = " + epochSecond);
+        System.out.println("Instant in time = " + epochSecond);
 
         //Calculate duration of an event
-        Instant initial = Instant.now();
+        Instant init = Instant.now();
         Thread.sleep(1000);
         Instant end = Instant.now();
 
-        System.out.println("Duration of the event = " + Duration.between(initial, end));
+        System.out.println("Duration of the event = " + Duration.between(init, end));
         System.out.println();
     }
 

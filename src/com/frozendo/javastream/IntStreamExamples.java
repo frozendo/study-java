@@ -8,20 +8,20 @@ public class IntStreamExamples {
 
     public static void main(String[] args) {
 
-        IntStreamExamples example = new IntStreamExamples();
+        IntStreamExamples execute = new IntStreamExamples();
 
         int[] numbers = { 22, 72, 1, 99, 49, 22, 101, 33, 87, 110, 8, 7, 15, 2, 99, 101 };
 
-        example.sortAndPrint(numbers);
-        example.filterAndFind(numbers);
-        example.matchExamples(numbers);
-        example.findAndCalculate(numbers);
-        example.mapExample(numbers);
+        execute.sortAndPrint(numbers);
+        execute.filterAndFind(numbers);
+        execute.matchExamples(numbers);
+        execute.collectionCalculate(numbers);
+        execute.mapExample(numbers);
 
     }
 
     private void sortAndPrint(int[] numbers) {
-        System.out.println("##### Ordem - limitando em 5 #####");
+        System.out.println("##### Ordering and limit in 5 items #####");
         IntStream.of(numbers)
                 .sorted()
                 .limit(5)
@@ -29,7 +29,7 @@ public class IntStreamExamples {
 
         System.out.println();
 
-        System.out.println("##### Ordena - remove duplicado - multiplica por 2 #####");
+        System.out.println("##### Ordering, remove duplication and multiply by 2 #####");
         IntStream.of(numbers)
                 .sorted()
                 .distinct()
@@ -41,8 +41,8 @@ public class IntStreamExamples {
         System.out.println();
     }
 
-    public void filterAndFind(int[] numbers) {
-        System.out.println("##### Filtra numeros menor que 50 e recupera o primeiro #####");
+    private void filterAndFind(int[] numbers) {
+        System.out.println("##### Filter numbers less than 50 and get the first #####");
         OptionalInt first = IntStream.of(numbers)
                 .filter(p -> p < 50)
                 .findFirst();
@@ -50,7 +50,7 @@ public class IntStreamExamples {
 
         System.out.println();
 
-        System.out.println("##### Filtra numeros maior que 80 e recupera o primeiro encontrado #####");
+        System.out.println("##### Filter numbers more than 80 and get the any #####");
         OptionalInt any = IntStream.of(numbers)
                 .filter(p -> p > 80)
                 .findAny();
@@ -91,8 +91,8 @@ public class IntStreamExamples {
         System.out.println();
     }
 
-    private void findAndCalculate(int[] numbers) {
-        System.out.println("##### Filtra numeros multiplos de 2 e conta o total #####");
+    private void collectionCalculate(int[] numbers) {
+        System.out.println("##### Filter the numbers multiple of 2 and count #####");
         long count = IntStream.of(numbers)
                 .filter(p -> p % 2 == 0)
                 .count();
@@ -100,7 +100,7 @@ public class IntStreamExamples {
 
         System.out.println();
 
-        System.out.println("##### Pega a maior numero multiplo de 3 #####");
+        System.out.println("#####  Get the highest number multiple of 3  #####");
         OptionalInt max = IntStream.of(numbers)
                 .filter(p -> p % 3 == 0)
                 .max();
@@ -108,7 +108,7 @@ public class IntStreamExamples {
 
         System.out.println();
 
-        System.out.println("##### Pega a menor numero multiplo de 3 #####");
+        System.out.println("##### Get the smallest number multiple of 3 #####");
         OptionalInt min = IntStream.of(numbers)
                 .filter(p -> p % 3 == 0)
                 .min();
@@ -116,14 +116,14 @@ public class IntStreamExamples {
 
         System.out.println();
 
-        System.out.println("##### Soma todos os numeros da lista #####");
+        System.out.println("##### Sum all numbers in the collection #####");
         int sum = IntStream.of(numbers)
                 .sum();
         System.out.println(sum);
 
         System.out.println();
 
-        System.out.println("##### Calcula a média excluindo os 5 primeiros numeros da lista #####");
+        System.out.println("##### Calculate the average excluding the 5 first numbers in the collection #####");
         OptionalDouble average = IntStream.of(numbers)
                 .skip(5)
                 .average();
@@ -133,14 +133,14 @@ public class IntStreamExamples {
     }
 
     private void mapExample(int[] numbers) {
-        System.out.println("##### Map transformando pra long #####");
+        System.out.println("##### Map transform to long #####");
         IntStream.of(numbers)
                 .mapToLong(Long::valueOf)
                 .forEach(System.out::println);
 
         System.out.println();
 
-        System.out.println("##### Map - multiplicando por 3 #####");
+        System.out.println("##### Map - multiply by 3 #####");
         IntStream.of(numbers)
                 .map(m -> m * 3)
                 .forEach(System.out::println);

@@ -10,26 +10,26 @@ import java.util.stream.Stream;
 public class GroupCollectorsExamples {
 
     public static void main(String[] args) {
-        GroupCollectorsExamples example = new GroupCollectorsExamples();
+        GroupCollectorsExamples execute = new GroupCollectorsExamples();
 
         System.out.println("##### GroupingBy Examples #####");
-        example.simpleGroupingBySplitByDozens();
-        example.simpleGroupingBySplitByStringLength();
+        execute.simpleGroupingBySplitByDozens();
+        execute.simpleGroupingBySplitByStringLength();
         System.out.println();
 
         System.out.println("##### PartitionBy Examples #####");
-        example.simplePartitionByEvenOdd();
-        example.simplePartitionByBigWords();
+        execute.simplePartitionByEvenOdd();
+        execute.simplePartitionByBigWords();
         System.out.println();
 
         System.out.println("##### Downstream collectors #####");
-        example.groupingByDownstreamCollectors();
-        example.groupingByDownstreamWithFactory();
-        example.partitionByDownstreamCollectors();
+        execute.groupingByDownstreamCollectors();
+        execute.groupingByDownstreamWithFactory();
+        execute.partitionByDownstreamCollectors();
         System.out.println();
     }
 
-    public void simpleGroupingBySplitByDozens() {
+    private void simpleGroupingBySplitByDozens() {
         Map<Integer, List<Integer>> collect = Stream.of(2, 34, 54, 23, 33, 20, 59, 11, 19, 37)
                 .collect(Collectors.groupingBy(
                         i -> i / 10 * 10
@@ -38,7 +38,7 @@ public class GroupCollectorsExamples {
         System.out.println("result = " + collect);
     }
 
-    public void simpleGroupingBySplitByStringLength() {
+    private void simpleGroupingBySplitByStringLength() {
         Map<Integer, List<String>> collect =Stream.of("Java", "Spring", "Quarkus", "Log4", "JPA", "JVM", "JDK", "POI", "Lambda")
                 .collect(Collectors.groupingBy(
                         String::length
@@ -47,7 +47,7 @@ public class GroupCollectorsExamples {
         System.out.println("result = " + collect);
     }
 
-    public void simplePartitionByEvenOdd() {
+    private void simplePartitionByEvenOdd() {
         Map<Boolean, List<Integer>> collect = Stream.of(2, 34, 54, 23, 33, 20, 59, 11, 19, 37)
                 .collect(Collectors.partitioningBy(
                         i -> i % 2 == 0
@@ -56,7 +56,7 @@ public class GroupCollectorsExamples {
         System.out.println("result = " + collect);
     }
 
-    public void simplePartitionByBigWords() {
+    private void simplePartitionByBigWords() {
         Map<Boolean, List<String>> collect = Stream.of("Java", "Spring", "Quarkus", "Log4", "JPA", "JVM", "JDK", "POI", "Lambda")
                 .collect(Collectors.partitioningBy(
                         i -> i.length() > 5
@@ -65,7 +65,7 @@ public class GroupCollectorsExamples {
         System.out.println("result = " + collect);
     }
 
-    public void groupingByDownstreamCollectors() {
+    private void groupingByDownstreamCollectors() {
         Map<Integer, Map<String, List<Integer>>> collect = Stream.of(2, 34, 54, 23, 33, 20, 59, 11, 19, 37)
                 .collect(
                         Collectors.groupingBy(i -> i / 10 * 10,
@@ -75,7 +75,7 @@ public class GroupCollectorsExamples {
         System.out.println("result = " + collect);
     }
 
-    public void groupingByDownstreamWithFactory() {
+    private void groupingByDownstreamWithFactory() {
         Map<Integer, Map<String, List<String>>> collect = Stream.of("Java", "Spring", "Quarkus", "Log4", "JPA", "JVM", "JDK", "POI", "Lambda")
                 .collect(
                         Collectors.groupingBy(
@@ -87,7 +87,7 @@ public class GroupCollectorsExamples {
         System.out.println("result = " + collect);
     }
 
-    public void partitionByDownstreamCollectors() {
+    private void partitionByDownstreamCollectors() {
         Map<Boolean, Set<Integer>> collect = Stream.of(45, 9, 65, 77, 12, 89, 31, 12, 120, 44, 88, 120, 210, 330)
                 .collect(Collectors.partitioningBy(
                         i -> i < 50,

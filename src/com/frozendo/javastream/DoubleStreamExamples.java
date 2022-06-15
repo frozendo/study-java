@@ -7,20 +7,20 @@ public class DoubleStreamExamples {
 
     public static void main(String[] args) {
 
-        DoubleStreamExamples example = new DoubleStreamExamples();
+        DoubleStreamExamples execute = new DoubleStreamExamples();
 
         double[] numbers = { 22.2, 72.5, 1.9, 99.10, 49.5, 22.9, 101, 33.54, 87.99, 110.12, 8.8, 7.87, 15.3, 2.44, 99.10, 101 };
 
-        example.sortAndPrint(numbers);
-        example.filterAndFind(numbers);
-        example.matchExamples(numbers);
-        example.findAndCalculate(numbers);
-        example.mapExample(numbers);
+        execute.sortAndPrint(numbers);
+        execute.filterAndFind(numbers);
+        execute.matchExamples(numbers);
+        execute.collectionCalculate(numbers);
+        execute.mapExample(numbers);
 
     }
 
     private void sortAndPrint(double[] numbers) {
-        System.out.println("##### Ordem - limitando em 5 #####");
+        System.out.println("##### Ordering and limit in 5 items #####");
         DoubleStream.of(numbers)
                 .sorted()
                 .limit(5)
@@ -28,7 +28,7 @@ public class DoubleStreamExamples {
 
         System.out.println();
 
-        System.out.println("##### Ordena - remove duplicado - multiplica por 2 #####");
+        System.out.println("##### Ordering, remove duplication and multiply by 2 #####");
         DoubleStream.of(numbers)
                 .sorted()
                 .distinct()
@@ -40,8 +40,8 @@ public class DoubleStreamExamples {
         System.out.println();
     }
 
-    public void filterAndFind(double[] numbers) {
-        System.out.println("##### Filtra numeros menor que 50 e recupera o primeiro #####");
+    private void filterAndFind(double[] numbers) {
+        System.out.println("##### Filter numbers less than 50 and get the first #####");
         OptionalDouble first = DoubleStream.of(numbers)
                 .filter(p -> p < 50)
                 .findFirst();
@@ -49,7 +49,7 @@ public class DoubleStreamExamples {
 
         System.out.println();
 
-        System.out.println("##### Filtra numeros maior que 80 e recupera o primeiro encontrado #####");
+        System.out.println("##### Filter numbers more than 50 and get the any #####");
         OptionalDouble any = DoubleStream.of(numbers)
                 .filter(p -> p > 80)
                 .findAny();
@@ -90,8 +90,8 @@ public class DoubleStreamExamples {
         System.out.println();
     }
 
-    private void findAndCalculate(double[] numbers) {
-        System.out.println("##### Filtra numeros menor que 5 e conta o total #####");
+    private void collectionCalculate(double[] numbers) {
+        System.out.println("##### Filter the numbers less than 5 and count #####");
         long count = DoubleStream.of(numbers)
                 .filter(p -> p < 5)
                 .count();
@@ -99,7 +99,7 @@ public class DoubleStreamExamples {
 
         System.out.println();
 
-        System.out.println("##### Pega a maior numero maior que 90 #####");
+        System.out.println("#####  Get the highest number greater than 90  #####");
         OptionalDouble max = DoubleStream.of(numbers)
                 .filter(p -> p > 90)
                 .max();
@@ -107,7 +107,7 @@ public class DoubleStreamExamples {
 
         System.out.println();
 
-        System.out.println("##### Pega o menor numero maior que 90 #####");
+        System.out.println("##### Get the smallest number greater than 90 #####");
         OptionalDouble min = DoubleStream.of(numbers)
                 .filter(p -> p > 90)
                 .min();
@@ -115,14 +115,14 @@ public class DoubleStreamExamples {
 
         System.out.println();
 
-        System.out.println("##### Soma todos os numeros da lista #####");
+        System.out.println("##### Sum all numbers in the collection #####");
         double sum = DoubleStream.of(numbers)
                 .sum();
         System.out.println(sum);
 
         System.out.println();
 
-        System.out.println("##### Calcula a média excluindo os 5 primeiros numeros da lista #####");
+        System.out.println("##### Calculate the average excluding the 5 first numbers in the collection #####");
         OptionalDouble average = DoubleStream.of(numbers)
                 .skip(5)
                 .average();
@@ -132,14 +132,14 @@ public class DoubleStreamExamples {
     }
 
     private void mapExample(double[] numbers) {
-        System.out.println("##### Map transformando pra int #####");
+        System.out.println("##### Map transform to int #####");
         DoubleStream.of(numbers)
                 .mapToInt(m -> Double.valueOf(m).intValue())
                 .forEach(System.out::println);
 
         System.out.println();
 
-        System.out.println("##### Map - multiplicando por 3 #####");
+        System.out.println("##### Map - multiply by 3 #####");
         DoubleStream.of(numbers)
                 .map(m -> m * 3)
                 .forEach(System.out::println);

@@ -11,19 +11,19 @@ import java.util.stream.Collectors;
 public class ReductionParallelExamples {
 
     public static void main(String[] args) {
-        ReductionParallelExamples reductionExamples = new ReductionParallelExamples();
+        ReductionParallelExamples execute = new ReductionParallelExamples();
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < 1_000_000; i++) {
             list.add(i);
         }
 
-        reductionExamples.reduceExample(list);
-        reductionExamples.collectExample(list);
-        reductionExamples.groupingByParallel(list);
+        execute.reduceMethodInParallelStream(list);
+        execute.collectMethodInParallelStream(list);
+        execute.groupingByMethodInParallelStream(list);
     }
 
-    public void reduceExample(List<Integer> list) {
-        System.out.println("##### reduce parallel #####");
+    private void reduceMethodInParallelStream(List<Integer> list) {
+        System.out.println("##### Using reduce with parallel stream #####");
         Integer simpleIdentity = list.parallelStream()
                 .reduce(0,
                         (sum, value) -> sum + value,
@@ -41,8 +41,8 @@ public class ReductionParallelExamples {
         System.out.println();
     }
 
-    public void collectExample(List<Integer> list) {
-        System.out.println("##### collect parallel #####");
+    private void collectMethodInParallelStream(List<Integer> list) {
+        System.out.println("##### Using collect with parallel stream #####");
         List<Integer> simpleCollect = list.parallelStream()
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 
@@ -57,7 +57,8 @@ public class ReductionParallelExamples {
         System.out.println();
     }
 
-    public void groupingByParallel(List<Integer> list) {
+    private void groupingByMethodInParallelStream(List<Integer> list) {
+        System.out.println("##### Using groupingBy with parallel stream #####");
         Instant sequentialStart = Instant.now();
         Map<Integer, List<Integer>> collectGroupingBy = list.parallelStream()
                 .collect(Collectors.groupingBy(

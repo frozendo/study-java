@@ -10,14 +10,14 @@ public class LocalDateExamples {
     public static void main(String[] args) {
         LocalDate date = LocalDate.now();
 
-        LocalDateExamples example = new LocalDateExamples();
+        LocalDateExamples execute = new LocalDateExamples();
 
-        example.crateLocalDate();
-        example.localDateGetOptions(date);
-        example.setDateNewValue(date);
-        example.plusDateValue(date);
-        example.minusDateValue(date);
-        example.temporalAdjusters(date);
+        execute.crateLocalDate();
+        execute.localDateGetOptions(date);
+        execute.setDateNewValue(date);
+        execute.plusDateValue(date);
+        execute.minusDateValue(date);
+        execute.temporalAdjusters(date);
     }
 
     private void crateLocalDate() {

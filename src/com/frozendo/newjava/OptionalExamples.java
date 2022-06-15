@@ -11,7 +11,7 @@ public class OptionalExamples {
         Optional<String> empty = Optional.empty();
 
         //test isPresent method
-        System.out.println("*** isPresent result ***");
+        System.out.println("##### isPresent result #####");
         useIsPresent(opt);
         useIsPresent(optNotNullable);
         useIsPresent(optNullable);
@@ -20,7 +20,7 @@ public class OptionalExamples {
         System.out.println();
 
         //test ifPresent method
-        System.out.println("*** ifPresent result ***");
+        System.out.println("##### ifPresent result #####");
         useIfPresent(opt);
         useIfPresent(optNotNullable);
         useIfPresent(optNullable);
@@ -29,7 +29,7 @@ public class OptionalExamples {
         System.out.println();
 
         //test filter
-        System.out.println("*** filter result ***");
+        System.out.println("##### filter result #####");
         optionalFilter(opt);
         optionalFilter(optNotNullable);
         optionalFilter(optNullable);
@@ -38,7 +38,7 @@ public class OptionalExamples {
         System.out.println();
 
         //test map
-        System.out.println("*** map result ***");
+        System.out.println("##### map result #####");
         optionalMap(opt);
         optionalMap(optNotNullable);
         optionalMap(optNullable);
@@ -47,7 +47,7 @@ public class OptionalExamples {
         System.out.println();
 
         //test flatMap
-        System.out.println("*** flatMap result ***");
+        System.out.println("##### flatMap result #####");
         optionalFlatMap(opt);
         optionalFlatMap(optNotNullable);
         optionalFlatMap(optNullable);
@@ -56,7 +56,7 @@ public class OptionalExamples {
         System.out.println();
 
         //test orElse
-        System.out.println("*** orElse result ***");
+        System.out.println("##### orElse result #####");
         optionalOrElse(opt);
         optionalOrElse(optNotNullable);
         optionalOrElse(optNullable);
@@ -65,7 +65,7 @@ public class OptionalExamples {
         System.out.println();
 
         //test orElesGet
-        System.out.println("*** orElesGet result ***");
+        System.out.println("##### orElesGet result #####");
         optionalOrElseGet(opt);
         optionalOrElseGet(optNotNullable);
         optionalOrElseGet(optNullable);
@@ -74,7 +74,7 @@ public class OptionalExamples {
         System.out.println();
 
         //test orElesGetThrow
-        System.out.println("*** orElesGetThrow result ***");
+        System.out.println("##### orElesGetThrow result #####");
         optionalOrElseThrow(opt);
         optionalOrElseThrow(optNotNullable);
         optionalOrElseThrow(optNullable);

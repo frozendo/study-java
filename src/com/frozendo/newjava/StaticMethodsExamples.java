@@ -1,9 +1,9 @@
 package com.frozendo.newjava;
 
-public interface StaticMethods {
+public interface StaticMethodsExamples {
 
     static void main(String[] args) {
-        StaticMethods.printByStaticMethods();
+        StaticMethodsExamples.printByStaticMethods();
         SomeInterfaceStaticMethod.exampleStaticMethod();
         SomeClassStaticMethod.exampleStaticMethod();
     }

@@ -6,57 +6,45 @@ import java.util.List;
 public class Product {
 
     public Product() {
-        this(1L, "Construtor Padrão", 10D);
+        this(1L, "Default Product", 10D);
     }
 
-    public Product(Long id, String nome, Double preco) {
+    public Product(Long id, String name, Double price) {
         this.id = id;
-        this.nome = nome;
-        this.preco = preco;
+        this.name = name;
+        this.price = price;
     }
 
-    private Long id;
-    private String nome;
-    private Double preco;
+    private final Long id;
+    private final String name;
+    private final Double price;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getName() {
+        return name;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
+    public Double getPrice() {
+        return price;
     }
 
     @Override
     public String toString() {
-        return "Produto{" +
+        return "Product{" +
                 "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", preco=" + preco +
+                ", name='" + name + '\'' +
+                ", price=" + price +
                 '}';
     }
 
     public static List<Product> buildList() {
-        Product product1 = new Product(1L, "Dado", 22.20D);
-        Product product2 = new Product(2L, "Cabide", 32.40D);
-        Product product3 = new Product(3L, "Bexiga", 12.10D);
-        Product product4 = new Product(4L, "Anel", 58.20D);
+        Product product1 = new Product(1L, "Bladder", 22.20D);
+        Product product2 = new Product(2L, "Ring", 32.40D);
+        Product product3 = new Product(3L, "Bicycle", 320.10D);
+        Product product4 = new Product(4L, "Painting", 279.99D);
         return Arrays.asList(product1, product2, product3, product4);
     }
 }

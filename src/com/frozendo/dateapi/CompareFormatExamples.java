@@ -7,14 +7,14 @@ import java.time.format.DateTimeFormatter;
 
 public class CompareFormatExamples {
 
-    public static final String DATE_PATTERN = "dd/MM/yyyy";
-    public static final String DATETIME_PATTERN = "dd/MM/yyyy HH:mm:ss";
+    private static final String DATE_PATTERN = "dd/MM/yyyy";
+    private static final String DATETIME_PATTERN = "dd/MM/yyyy HH:mm:ss";
 
     public static void main(String[] args) {
-        CompareFormatExamples example = new CompareFormatExamples();
-        example.dataCompare();
-        example.formatDate();
-        example.formatStringToDate();
+        CompareFormatExamples execute = new CompareFormatExamples();
+        execute.dataCompare();
+        execute.formatDate();
+        execute.formatStringToDate();
     }
 
     private void dataCompare() {
@@ -38,6 +38,7 @@ public class CompareFormatExamples {
     private void formatDate() {
         System.out.println("##### Format a date to string #####");
 
+        System.out.println("Use LocalDate and LocalTime");
         System.out.println(LocalDate.now().format(DateTimeFormatter.ISO_WEEK_DATE));
         System.out.println(LocalDate.now().format(DateTimeFormatter.ofPattern(DATE_PATTERN)));
         System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
@@ -45,6 +46,7 @@ public class CompareFormatExamples {
 
         System.out.println();
 
+        System.out.println("Use ZonedDateTime");
         System.out.println(ZonedDateTime.now().format(DateTimeFormatter.ISO_WEEK_DATE));
         System.out.println(ZonedDateTime.now().format(DateTimeFormatter.ofPattern(DATE_PATTERN)));
         System.out.println(ZonedDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));

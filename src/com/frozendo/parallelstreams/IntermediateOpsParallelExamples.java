@@ -10,20 +10,20 @@ import java.util.stream.Collectors;
 public class IntermediateOpsParallelExamples {
 
     public static void main(String[] args) {
-        IntermediateOpsParallelExamples example = new IntermediateOpsParallelExamples();
+        IntermediateOpsParallelExamples execute = new IntermediateOpsParallelExamples();
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < 1_000_000; i++) {
             list.add(i);
         }
 
-        example.findFirstCompare(list);
-        example.sortedCompare(list);
-        example.limitCompare(list);
-        example.findAnyCompare(list);
+        execute.findFirstAndCompare(list);
+        execute.sortedAndCompare(list);
+        execute.limitAndCompare(list);
+        execute.findAnyAndCompare(list);
     }
 
-    public void findFirstCompare(List<Integer> list) {
-        System.out.println("##### findFirst #####");
+    private void findFirstAndCompare(List<Integer> list) {
+        System.out.println("##### Execute and compare findFirst in sequential and parallel stream #####");
 
         Instant sequentialStart = Instant.now();
         Optional<Integer> sequential = list.stream().findFirst();
@@ -42,8 +42,8 @@ public class IntermediateOpsParallelExamples {
         System.out.println();
     }
 
-    public void sortedCompare(List<Integer> list) {
-        System.out.println("##### sorted #####");
+    private void sortedAndCompare(List<Integer> list) {
+        System.out.println("##### Execute and compare sorted in sequential and parallel stream #####");
 
         Instant sequentialStart = Instant.now();
         List<Integer> sequential = list.stream()
@@ -66,8 +66,8 @@ public class IntermediateOpsParallelExamples {
         System.out.println();
     }
 
-    public void limitCompare(List<Integer> list) {
-        System.out.println("##### limit #####");
+    private void limitAndCompare(List<Integer> list) {
+        System.out.println("##### Execute and compare limit in sequential and parallel stream #####");
 
         Instant sequentialStart = Instant.now();
         List<Integer> sequential = list.stream()
@@ -90,8 +90,8 @@ public class IntermediateOpsParallelExamples {
         System.out.println();
     }
 
-    public void findAnyCompare(List<Integer> list) {
-        System.out.println("##### findAny #####");
+    private void findAnyAndCompare(List<Integer> list) {
+        System.out.println("##### Execute and compare findAny in sequential and parallel stream #####");
 
         Instant sequentialStart = Instant.now();
         Optional<Integer> sequential = list.stream().findAny();

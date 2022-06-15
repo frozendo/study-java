@@ -8,9 +8,9 @@ import java.time.temporal.TemporalAdjusters;
 public class ZonedDateTimeExamples {
 
     public static void main(String[] args) {
-        ZonedDateTimeExamples example = new ZonedDateTimeExamples();
+        ZonedDateTimeExamples execute = new ZonedDateTimeExamples();
 
-        example.chicagoZonedOperations();
+        execute.chicagoZonedOperations();
 
         //Get Paris Time and use in common operations
         ZoneId parisId = ZoneId.of("Europe/Paris");
@@ -18,14 +18,15 @@ public class ZonedDateTimeExamples {
         System.out.println("Datetime now in Paris = " + parisTime);
         System.out.println();
 
-        example.zonedGetOptions(parisTime);
-        example.setZonedNewValues(parisTime);
-        example.plusValue(parisTime);
-        example.minusValue(parisTime);
-        example.temporalAdjusters(parisTime);
+        execute.zonedGetOptions(parisTime);
+        execute.setZonedNewValues(parisTime);
+        execute.plusValue(parisTime);
+        execute.minusValue(parisTime);
+        execute.temporalAdjusters(parisTime);
     }
 
     private void chicagoZonedOperations() {
+        System.out.println("##### Execute operations with chicago zoneId #####");
         ZoneId zoneId = ZoneId.of("America/Chicago");
         ZonedDateTime chigagoTime = ZonedDateTime.now(zoneId);
         System.out.println("Datetime now in Chicago = " + chigagoTime);
@@ -68,7 +69,7 @@ public class ZonedDateTimeExamples {
     }
 
     private void temporalAdjusters(ZonedDateTime parisTime) {
-        System.out.println("##### Temporal Adjusters examples #####");
+        System.out.println("##### Temporal Adjusters examples with Paris time #####");
         System.out.println("Get last day of the month = " + parisTime.with(TemporalAdjusters.lastDayOfMonth()));
         System.out.println("Get first day of the year = " + parisTime.with(TemporalAdjusters.firstDayOfYear()));
         System.out.println("Get the day of next friday = " + parisTime.with(TemporalAdjusters.next(DayOfWeek.FRIDAY)));
