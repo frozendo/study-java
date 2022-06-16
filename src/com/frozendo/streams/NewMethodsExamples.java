@@ -4,15 +4,15 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.List;
 
-public class NewMethodsExample {
+public class NewMethodsExamples {
 
     public static void main(String[] args) {
-        NewMethodsExample execute = new NewMethodsExample();
+        NewMethodsExamples execute = new NewMethodsExamples();
         execute.getStudentGoodGrades();
         execute.getAverage();
     }
 
-    public void getStudentGoodGrades() {
+    private void getStudentGoodGrades() {
         System.out.println("##### Use mapMulti to get just good grades #####");
 
         final var students = buildStudentList();
@@ -36,7 +36,7 @@ public class NewMethodsExample {
         System.out.println();
     }
 
-    public void getAverage() {
+    private void getAverage() {
         System.out.println("##### Use mapMulti to get average #####");
 
         final var students = buildStudentList();

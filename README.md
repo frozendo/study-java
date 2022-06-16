@@ -1,46 +1,28 @@
-# Study Java
-Repository to study Java new versions and features.
+# Java 16
 
-Each branch has code and examples of features and new Java APIs for your own version.
+## Streams
 
-If you want to read the articles related to each version, go to https://frozendo.medium.com/.
+In Java 16, two new methods were added in Stream API
 
-## Java 8
+### mapMulti
 
-* Default Methods
-* Static Methods
-* Optional
-* Date API
-* Functional Interfaces
-* Lambdas
-* Stream and Parallel Streams
+Similar to the _flatMap_ executes an exchange of the stream elements by zero or more elements. Each element passes through the method and may or may not be changed.
 
-For more details, see branch [java-8](https://github.com/frozendo/study-java/tree/java-8)
+The elements changed by the method are accumulated by a consumer before passing to the stream.
 
-## Java 9
+MapMulti is better than _flatMap_ in some situations, principally when each element of the stream is changed by a few elements, or when is more simple to utilize an imperative approach.
 
-###### Under construction
 
-## Java 10
+### toList
 
-* Coming Soon
+toList is a final operation that accumulates the elements in a list. Unlike Collectors.toList, this method return an immutable list, similar to List.of.
 
-## Java 11
+This method is not used with collect, but directly in final a pipeline.
 
-* Coming Soon
+[NewMethodsExamples](https://github.com/frozendo/study-java/blob/java-16/src/com/frozendo/streams/NewMethodsExample.java) show how to use both methods.
 
-## Java 12
+## To Read More
 
-* Coming Soon
+For more details about Java 9, you can read these articles about:
 
-## Java 13
-
-* Coming Soon
-
-## Java 14
-
-* Coming Soon
-
-## Java 15
-
-* Coming Soon
+[Optional e Stream — melhorias pós Java 8](https://frozendo.medium.com/optional-e-stream-melhorias-p%C3%B3s-java-8-95262079396f)
