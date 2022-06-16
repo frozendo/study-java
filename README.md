@@ -101,7 +101,7 @@ The Optional class was improved in this version, with new options of methods.
 ## To Read More
 For more details about Java 9, you can read these articles about:
 
-[Java 9 - Jshell](https://frozendo.medium.com/java-9-jshell-e3a75b850a9e)
-[Java 9 - novas features](https://frozendo.medium.com/java-9-novas-features-e6780508748c)
-[Novas API's pós Java 8](https://frozendo.medium.com/novas-apis-p%C3%B3s-java-8-4a1a05a93a93)
-[Optional e Stream - melhorias pós Java 8](https://frozendo.medium.com/optional-e-stream-melhorias-p%C3%B3s-java-8-95262079396f)
+* [Java 9 - Jshell](https://frozendo.medium.com/java-9-jshell-e3a75b850a9e)
+* [Java 9 - novas features](https://frozendo.medium.com/java-9-novas-features-e6780508748c)
+* [Novas API's pós Java 8](https://frozendo.medium.com/novas-apis-p%C3%B3s-java-8-4a1a05a93a93)
+* [Optional e Stream - melhorias pós Java 8](https://frozendo.medium.com/optional-e-stream-melhorias-p%C3%B3s-java-8-95262079396f)
