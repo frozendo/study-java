@@ -12,7 +12,6 @@ import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 
 public class HttpClientExamples {
-
     private static final String POSTMAN_HOST = "https://postman-echo.com/";
     private static final String GET_ENDPOINT = POSTMAN_HOST + "get";
     private static final String POST_ENDPOINT = POSTMAN_HOST + "post";
