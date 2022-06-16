@@ -3,15 +3,15 @@ package com.frozendo.features;
 public class PrivateMethodsInterfaceExamples {
 
     public static void main(String[] args) {
-        PrivateMethodsInterfaceExamples privateExamples = new PrivateMethodsInterfaceExamples();
+        PrivateMethodsInterfaceExamples execute = new PrivateMethodsInterfaceExamples();
 
-        SimpleClass simpleClass = privateExamples.new SimpleClass();
+        SimpleClass simpleClass = execute.new SimpleClass();
 
         System.out.println(simpleClass.talkAboutMyself());
         System.out.println(simpleClass.greet("Ironman"));
         System.out.println();
 
-        OverrideDefaultClass overrideDefaultClass = privateExamples.new OverrideDefaultClass();
+        OverrideDefaultClass overrideDefaultClass = execute.new OverrideDefaultClass();
 
         System.out.println(overrideDefaultClass.talkAboutMyself());
         System.out.println(overrideDefaultClass.greet("Black Widow"));
@@ -22,7 +22,7 @@ public class PrivateMethodsInterfaceExamples {
         SomeStaticInterface.speak("Call speak directly");
         System.out.println();
 
-        SayThings sayThings = privateExamples.new SayThings();
+        SayThings sayThings = execute.new SayThings();
         sayThings.saySomething();
         sayThings.saySomethingLoud();
         System.out.println();
@@ -30,11 +30,11 @@ public class PrivateMethodsInterfaceExamples {
 
     }
 
-    public class SimpleClass implements SomeInterface {
+    private class SimpleClass implements SomeInterface {
 
     }
 
-    public class OverrideDefaultClass implements SomeInterface {
+    private class OverrideDefaultClass implements SomeInterface {
         @Override
         public String talkAboutMyself() {
             return "I'm a method in a class that override interface default method";
@@ -49,7 +49,7 @@ public class PrivateMethodsInterfaceExamples {
 //        }
     }
 
-    public class SayThings implements SomeStaticInterface {
+    private class SayThings implements SomeStaticInterface {
         public void saySomething() {
             //We can't use speak method because it's a private method
             //speak("I'm a static method using a private static method");
@@ -61,7 +61,7 @@ public class PrivateMethodsInterfaceExamples {
         }
     }
 
-    public interface SomeStaticInterface {
+    private interface SomeStaticInterface {
 
         static void saySomething() {
             speak("I'm a static method using a private static method");
@@ -84,7 +84,7 @@ public class PrivateMethodsInterfaceExamples {
 
     }
 
-    public interface SomeInterface {
+    private interface SomeInterface {
 
         default String talkAboutMyself() {
             String initialMsg = initialValue();

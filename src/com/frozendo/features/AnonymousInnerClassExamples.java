@@ -7,10 +7,10 @@ public class AnonymousInnerClassExamples {
 
     public static void main(String[] args) {
 
-        AnonymousInnerClassExamples examples = new AnonymousInnerClassExamples();
-        examples.diamondOperatorExamples();
-        examples.anonymousClassExamples();
-        examples.anonymousClassWithDiamondOperator();
+        AnonymousInnerClassExamples execute = new AnonymousInnerClassExamples();
+        execute.diamondOperatorExamples();
+        execute.anonymousClassExamples();
+        execute.anonymousClassWithDiamondOperator();
 
     }
 
@@ -91,17 +91,17 @@ public class AnonymousInnerClassExamples {
         System.out.println();
     }
 
-    public abstract class HelloInPortuguese implements Hello {
+    private abstract class HelloInPortuguese implements Hello {
 
         @Override
         public abstract String greet(String name, String complement);
     }
 
-    public interface Hello {
+    private interface Hello {
         String greet(String name, String complement);
     }
 
-    public interface ExampleMath<T> {
+    private interface ExampleMath<T> {
         T sum(T x, T y);
 
         T multi(T x, T y);

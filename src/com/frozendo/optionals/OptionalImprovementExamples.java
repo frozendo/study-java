@@ -31,15 +31,14 @@ public class OptionalImprovementExamples {
         System.out.println();
 
         System.out.println("Optional empty");
-        Optional<LocalDate> empty = Optional.of(LocalDate.of(2009, 6, 25));
+        Optional<LocalDate> empty = Optional.empty();
         Optional<LocalDate> resultEmpty = empty.or(buildLocalDate());
         System.out.println("Result: " + resultEmpty);
         System.out.println("Instance is equal?: " + (resultEmpty == empty));
 
         System.out.println();
 
-        System.out.println("Parâmetro null");
-        Optional<LocalDate> optDate = Optional.empty();
+        System.out.println("Parameter null");
         try {
             Optional<LocalDate> resultExcp = original.or(null);
             System.out.println("Result: " + resultExcp);

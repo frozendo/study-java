@@ -15,7 +15,7 @@ public class OfNullableExamples {
         execute.usingStreamOfNullableWithFlatMap();
     }
     
-    public void usingStreamOf() {
+    private void usingStreamOf() {
         System.out.println("##### Using 'of' to create a stream ######");
 
         System.out.println("Simple stream with one element");
@@ -31,7 +31,7 @@ public class OfNullableExamples {
             System.out.println();
     }
 
-    public void usingStreamOfWithNullElement() {
+    private void usingStreamOfWithNullElement() {
         System.out.println("##### Using 'of' with null value ######");
 
         try {
@@ -45,7 +45,7 @@ public class OfNullableExamples {
         System.out.println();
     }
 
-    public void usingStreamOfNullable() {
+    private void usingStreamOfNullable() {
         System.out.println("##### Using 'ofNullable' to create a stream with elements ######");
 
         Stream.ofNullable("yellow")
@@ -55,7 +55,7 @@ public class OfNullableExamples {
 
     }
 
-    public void usingStreamOfNullableWithNullElement() {
+    private void usingStreamOfNullableWithNullElement() {
         System.out.println("##### Using 'ofNullable' to create a stream with null value ######");
 
         Stream.ofNullable(null)
@@ -66,7 +66,7 @@ public class OfNullableExamples {
 
     }
 
-    public void usingStreamOfNullableWithFlatMap() {
+    private void usingStreamOfNullableWithFlatMap() {
         System.out.println("##### Combine ofNullable and flatMap to create a strem with multi elements #####");
 
         List<String> colors = new ArrayList<>();

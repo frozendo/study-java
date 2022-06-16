@@ -28,11 +28,11 @@ public class ProcessApiExamples {
         System.out.println("##### Get Process ID #####");
 
         String pName = ManagementFactory.getRuntimeMXBean().getName();
-        int oldpid = Integer.parseInt(pName.split("@")[0]);
-        System.out.println("Old way = " + oldpid);
+        int oldPid = Integer.parseInt(pName.split("@")[0]);
+        System.out.println("Old way = " + oldPid);
 
-        Long newpid = ProcessHandle.current().pid();
-        System.out.println("New way = " + newpid);
+        long newPid = ProcessHandle.current().pid();
+        System.out.println("New way = " + newPid);
         System.out.println();
     }
 
@@ -120,9 +120,8 @@ public class ProcessApiExamples {
 
         CompletableFuture<Process> onProcessExit =  process.onExit();
         onProcessExit.get();
-        onProcessExit.thenAccept(consumer -> {
-            System.out.println("Process id " + consumer.pid() + " was destroyed");
-        });
+        onProcessExit.thenAccept(consumer ->
+                System.out.println("Process id " + consumer.pid() + " was destroyed"));
 
         System.out.println();
     }
@@ -133,7 +132,7 @@ public class ProcessApiExamples {
         System.out.println("Start Calculator");
         long processId = new ProcessBuilder("gnome-calculator").start().pid();
 
-        Optional<ProcessHandle> optProcessHandle = ProcessHandle.of(5964);
+        Optional<ProcessHandle> optProcessHandle = ProcessHandle.of(processId);
 
         if (optProcessHandle.isPresent()) {
             ProcessHandle processHandle = optProcessHandle.get();
@@ -144,9 +143,8 @@ public class ProcessApiExamples {
 
             CompletableFuture<ProcessHandle> onProcessExit = processHandle.onExit();
             onProcessExit.get();
-            onProcessExit.thenAccept(consumer -> {
-                System.out.println("Process id " + consumer.pid() + " was destroyed");
-            });
+            onProcessExit.thenAccept(consumer ->
+                System.out.println("Process id " + consumer.pid() + " was destroyed"));
         }
 
         System.out.println();
@@ -177,28 +175,31 @@ public class ProcessApiExamples {
                 .filter(i -> i.children().findAny().isPresent())
                 .findFirst();
 
-        ProcessHandle.Info info = process.get().info();
-        System.out.print("PID: " + process.get().pid());
-        System.out.print(", Instance: " + info.startInstant());
-        System.out.print(", Total CPU: " + info.totalCpuDuration());
-        System.out.print(", User: " + info.user());
-        System.out.print(", Command: " + info.command());
-        System.out.print(", Args: " + info.arguments());
-        System.out.println();
+        if (process.isPresent()) {
 
-        Stream<ProcessHandle> children = process.get().children();
+            ProcessHandle.Info info = process.get().info();
+            System.out.print("PID: " + process.get().pid());
+            System.out.print(", Instance: " + info.startInstant());
+            System.out.print(", Total CPU: " + info.totalCpuDuration());
+            System.out.print(", User: " + info.user());
+            System.out.print(", Command: " + info.command());
+            System.out.print(", Args: " + info.arguments());
+            System.out.println();
 
-        children.limit(5)
-                .forEach(ph -> {
-                    ProcessHandle.Info cInfo = ph.info();
-                    System.out.print("Children PID: " + ph.pid());
-                    System.out.print(", Children Instance: " + cInfo.startInstant());
-                    System.out.print(", Children Total CPU: " + cInfo.totalCpuDuration());
-                    System.out.print(", Children User: " + cInfo.user());
-                    System.out.print(", Children Command: " + cInfo.command());
-                    System.out.print(", Children Args: " + cInfo.arguments());
-                    System.out.println();
-                });
+            Stream<ProcessHandle> children = process.get().children();
+
+            children.limit(5)
+                    .forEach(ph -> {
+                        ProcessHandle.Info cInfo = ph.info();
+                        System.out.print("Children PID: " + ph.pid());
+                        System.out.print(", Children Instance: " + cInfo.startInstant());
+                        System.out.print(", Children Total CPU: " + cInfo.totalCpuDuration());
+                        System.out.print(", Children User: " + cInfo.user());
+                        System.out.print(", Children Command: " + cInfo.command());
+                        System.out.print(", Children Args: " + cInfo.arguments());
+                        System.out.println();
+                    });
+        }
 
         System.out.println();
     }
@@ -209,28 +210,31 @@ public class ProcessApiExamples {
                 .filter(i -> i.children().findAny().isPresent())
                 .findFirst();
 
-        ProcessHandle.Info info = process.get().info();
-        System.out.print("PID: " + process.get().pid());
-        System.out.print(", Instance: " + info.startInstant());
-        System.out.print(", Total CPU: " + info.totalCpuDuration());
-        System.out.print(", User: " + info.user());
-        System.out.print(", Command: " + info.command());
-        System.out.print(", Args: " + info.arguments());
-        System.out.println();
+        if (process.isPresent()) {
 
-        Stream<ProcessHandle> descendants = process.get().descendants();
+            ProcessHandle.Info info = process.get().info();
+            System.out.print("PID: " + process.get().pid());
+            System.out.print(", Instance: " + info.startInstant());
+            System.out.print(", Total CPU: " + info.totalCpuDuration());
+            System.out.print(", User: " + info.user());
+            System.out.print(", Command: " + info.command());
+            System.out.print(", Args: " + info.arguments());
+            System.out.println();
 
-        descendants.limit(5)
-                .forEach(ph -> {
-                    ProcessHandle.Info cInfo = ph.info();
-                    System.out.print("Descendants PID: " + ph.pid());
-                    System.out.print(", Descendants Instance: " + cInfo.startInstant());
-                    System.out.print(", Descendants User: " + cInfo.user());
-                    System.out.print(", Descendants Total CPU: " + cInfo.totalCpuDuration());
-                    System.out.print(", Descendants Command: " + cInfo.command());
-                    System.out.print(", Descendants Args: " + cInfo.arguments());
-                    System.out.println();
-                });
+            Stream<ProcessHandle> descendants = process.get().descendants();
+
+            descendants.limit(5)
+                    .forEach(ph -> {
+                        ProcessHandle.Info cInfo = ph.info();
+                        System.out.print("Descendants PID: " + ph.pid());
+                        System.out.print(", Descendants Instance: " + cInfo.startInstant());
+                        System.out.print(", Descendants User: " + cInfo.user());
+                        System.out.print(", Descendants Total CPU: " + cInfo.totalCpuDuration());
+                        System.out.print(", Descendants Command: " + cInfo.command());
+                        System.out.print(", Descendants Args: " + cInfo.arguments());
+                        System.out.println();
+                    });
+        }
 
         System.out.println();
     }

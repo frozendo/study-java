@@ -14,7 +14,7 @@ public class TakeWhileExamples {
         execute.withUnorderedListAndParallel();
     }
 
-    public void withAllMatchElements() {
+    private void withAllMatchElements() {
         System.out.println("##### All Matches Elements #####");
         List<Integer> list = List.of(2, 7, 9, 15, 22, 23, 34, 47, 52, 63, 77);
 
@@ -25,7 +25,7 @@ public class TakeWhileExamples {
         System.out.println();
     }
 
-    public void withNoneMatchElements() {
+    private void withNoneMatchElements() {
         System.out.println("##### None matches elements #####");
         List<Integer> list = List.of(2, 7, 9, 15, 22, 23, 34, 47, 52, 63, 77);
 
@@ -36,7 +36,7 @@ public class TakeWhileExamples {
         System.out.println();
     }
 
-    public void withOrderedListAndSingleThread() {
+    private void withOrderedListAndSingleThread() {
         System.out.println("##### Ordered List with Single Thread #####");
         List<Integer> list = List.of(2, 7, 9, 15, 22, 23, 34, 47, 52, 63, 77);
 
@@ -47,7 +47,7 @@ public class TakeWhileExamples {
         System.out.println();
     }
 
-    public void withOrderedListAndParallel() {
+    private void withOrderedListAndParallel() {
         System.out.println("##### Ordered List with Parallel #####");
         List<Integer> list = List.of(2, 7, 9, 15, 22, 23, 34, 47, 52, 63, 77);
 
@@ -58,7 +58,7 @@ public class TakeWhileExamples {
         System.out.println();
     }
 
-    public void withUnorderedListAndSingleThread() {
+    private void withUnorderedListAndSingleThread() {
         System.out.println("##### Unordered List with Single Thread #####");
         List<Integer> list = List.of(2, 52, 7, 22, 47, 63, 23, 34, 15, 9, 77);
 
@@ -70,7 +70,7 @@ public class TakeWhileExamples {
         System.out.println();
     }
 
-    public void withUnorderedListAndParallel() {
+    private void withUnorderedListAndParallel() {
         System.out.println("##### Unordered List with Parallel #####");
         List<Integer> list = List.of(52, 2, 7, 22, 47, 63, 23, 34, 15, 9, 77);
 

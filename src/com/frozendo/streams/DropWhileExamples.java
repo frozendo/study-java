@@ -45,6 +45,7 @@ public class DropWhileExamples {
             .forEach(value -> System.out.print(value + ", "));
 
         System.out.println();
+        System.out.println();
     }
 
     public void withOrderedListAndParallel() {
@@ -55,6 +56,7 @@ public class DropWhileExamples {
             .dropWhile(n -> n < 25)
             .forEach(value -> System.out.print(value + ", "));
 
+        System.out.println();
         System.out.println();
     }
 
@@ -67,6 +69,7 @@ public class DropWhileExamples {
             .dropWhile(n -> n < 25)
             .forEach(value -> System.out.print(value + ", "));
 
+        System.out.println();
         System.out.println();
     }
 

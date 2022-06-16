@@ -7,19 +7,20 @@ import java.io.IOException;
 public class TryWithResourcesExamples {
 
     public static void main(String[] args) {
-        TryWithResourcesExamples examples = new TryWithResourcesExamples();
+        TryWithResourcesExamples execute = new TryWithResourcesExamples();
         try {
-            examples.beforeJava7();
-            examples.beforeJava9();
-            examples.afterJava9WithFinalVariables();
-            examples.afterJava9WithEffectivelyFinalVariables();
+            execute.beforeJava7();
+            execute.beforeJava9();
+            execute.afterJava9WithFinalVariables();
+            execute.afterJava9WithEffectivelyFinalVariables();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
 
     }
 
-    public void beforeJava7() throws IOException {
+    private void beforeJava7() throws IOException {
+        System.out.println("##### Closes resources by hand - see before7.txt file #####");
         BufferedWriter bw = null;
         FileWriter fw = null;
         try {
@@ -36,15 +37,17 @@ public class TryWithResourcesExamples {
         }
     }
 
-    public void beforeJava9() throws IOException {
+    private void beforeJava9() throws IOException {
+        System.out.println("##### Create variable inside try to close resources automatic - see before9.txt file #####");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("before9.txt"))) {
             bw.write("using try with resources");
             bw.write("resources must be created in try declaration");
         }
     }
 
-    public void afterJava9WithFinalVariables() throws IOException {
-        final FileWriter fw = new FileWriter("java9finalvariable.txt");
+    private void afterJava9WithFinalVariables() throws IOException {
+        System.out.println("##### Using final variable in a try - see java9finalVariable.txt file #####");
+        final FileWriter fw = new FileWriter("java9finalVariable.txt");
         final BufferedWriter bw = new BufferedWriter(fw);
 
         try (fw;bw) {
@@ -52,8 +55,9 @@ public class TryWithResourcesExamples {
         }
     }
 
-    public void afterJava9WithEffectivelyFinalVariables() throws IOException {
-        FileWriter fw = new FileWriter("java9effectivelyfinalvariable.txt");
+    private void afterJava9WithEffectivelyFinalVariables() throws IOException {
+        System.out.println("##### Using effectively final variable in a try - see java9effectivelyFinalVariable.txt file #####");
+        FileWriter fw = new FileWriter("java9effectivelyFinalVariable.txt");
         BufferedWriter bw = new BufferedWriter(fw);
 
         try (fw;bw) {
