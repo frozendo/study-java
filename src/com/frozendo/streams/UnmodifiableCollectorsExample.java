@@ -8,13 +8,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class UnmodifiableCollectorsExample {
 
     public static void main(String[] args) {
         UnmodifiableCollectorsExample execute = new UnmodifiableCollectorsExample();
-        execute.imutableCollectorBeforeJava10();
+        execute.immutableCollectorBeforeJava10();
         execute.toUnmodifiableListExample();
         execute.toUnmodifiableSetExample();
         execute.toUnmodifiableMapExample();
@@ -22,7 +21,7 @@ public class UnmodifiableCollectorsExample {
         execute.toUnmodifiableMapMergingFunction();
     }
 
-    private void imutableCollectorBeforeJava10() {
+    private void immutableCollectorBeforeJava10() {
         System.out.println("##### Create unmodifiable list before Java 10 #####");
         var list = buildList(true);
         final List<LocalDate> result = list.stream().
