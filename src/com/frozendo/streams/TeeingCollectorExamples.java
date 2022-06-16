@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class TeeingCollectorExamples {
 
@@ -56,10 +55,10 @@ public class TeeingCollectorExamples {
         );
     }
 
-    public class BankOperation {
-        private String operation;
-        private Double value;
-        private LocalDate date;
+    private static class BankOperation {
+        private final String operation;
+        private final Double value;
+        private final LocalDate date;
 
         public BankOperation(String operation, Double value, LocalDate date) {
             this.operation = operation;

@@ -1,46 +1,20 @@
-# Study Java
-Repository to study Java new versions and features.
+# Java 12
 
-Each branch has code and examples of features and new Java APIs for your own version.
+## Stream
 
-If you want to read the articles related to each version, go to https://frozendo.medium.com/.
+### teeing
 
-## Java 8
+This is a collector compound by two downstream collectors and one merge function.
 
-* Default Methods
-* Static Methods
-* Optional
-* Date API
-* Functional Interfaces
-* Lambdas
-* Stream and Parallel Streams
+Teeing is very useful when we want to collect a stream in different forms, and compare or combine the results since the all elements are processed by both collectors.
 
-For more details, see branch [java-8](https://github.com/frozendo/study-java/tree/java-8)
+The merge function is responsible two combine or compare the result of both collectors.
 
-## Java 9
+The [TeeingCollectorExamples](https://github.com/frozendo/study-java/blob/java-12/src/com/frozendo/streams/TeeingCollectorExamples.java) class has examples of using this collector.
 
-###### Under construction
+## To read more
 
-## Java 10
+For more details about Java 12, you can read these articles about:
 
-* Coming Soon
+[Optional e Stream - melhorias pós Java 8](https://frozendo.medium.com/optional-e-stream-melhorias-p%C3%B3s-java-8-95262079396f#a960).
 
-## Java 11
-
-* Coming Soon
-
-## Java 12
-
-* Coming Soon
-
-## Java 13
-
-* Coming Soon
-
-## Java 14
-
-* Coming Soon
-
-## Java 15
-
-* Coming Soon
