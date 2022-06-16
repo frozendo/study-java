@@ -90,6 +90,8 @@ New methods and new collectors were added to _Streams API_.
 * *filtering:* similar to _Stream.filter_, executes validations on downstream collectors, and if the check returns false, exclude the item.
 * *flatMapping:* similar to _Stream.flatMap_, perform transformations and flats in downstream collectors.
 
+To see these new methods and collectors in action, see [these](https://github.com/frozendo/study-java/tree/java-9/src/com/frozendo/streams) examples.
+
 ## Optional
 
 The Optional class was improved in this version, with new options of methods.
@@ -97,6 +99,8 @@ The Optional class was improved in this version, with new options of methods.
 * *or:* executes the lambda function receives in parameter when the optional is empty.
 * *ifPresentOrElse:* execute a lambda function when the option has a value, and runnable when the option is empty.
 * *stream:* similar to _Collection.stream_, create a stream from the optional.
+
+The class [OptionalImprovementExamples](https://github.com/frozendo/study-java/blob/java-9/src/com/frozendo/optionals/OptionalImprovementExamples.java) show how use these methods.
 
 ## To Read More
 For more details about Java 9, you can read these articles about:
