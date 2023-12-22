@@ -1,21 +1,19 @@
 # Study Java
 Repository to study Java new versions and features.
 
-Each branch has code and examples of features and new Java APIs for your own version.
+Each version has his own package, and inside those packages, the examples are split by features.
 
 If you want to read the articles related to each version, go to https://frozendo.medium.com/.
 
 ## Java 8
 
-* Default Methods
-* Static Methods
-* Optional
-* Date API
-* Functional Interfaces
-* Lambdas
-* Stream and Parallel Streams
-
-For more details, see branch [java-8](https://github.com/frozendo/study-java/tree/java-8)
+* [Default Methods](https://github.com/frozendo/study-java/blob/main/src/com/frozendo/java8/interfacemethods/DefaultMethod.java)
+* [Static Methods](https://github.com/frozendo/study-java/blob/main/src/com/frozendo/java8/interfacemethods/StaticMethod.java)
+* [Optional](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java8/optional)
+* [Date API](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java8/dateapi)
+* [Lambdas](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java8/lambda)
+* [Stream](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java8/streamapi) 
+* [Parallel Streams](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java8/parallelstream)
 
 ## Java 9
 
