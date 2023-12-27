@@ -1,6 +1,6 @@
 package com.frozendo.java8.lambda.bifunctions;
 
-import com.frozendo.java8.entity.Product;
+import com.frozendo.entity.Product;
 
 import java.util.List;
 import java.util.function.BiPredicate;

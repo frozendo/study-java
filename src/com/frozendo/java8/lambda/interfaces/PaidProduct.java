@@ -1,6 +1,6 @@
 package com.frozendo.java8.lambda.interfaces;
 
-import com.frozendo.java8.entity.Product;
+import com.frozendo.entity.Product;
 
 /**
  * To create a functional interface,

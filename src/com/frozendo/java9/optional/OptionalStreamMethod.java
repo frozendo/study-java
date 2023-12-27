@@ -1,6 +1,6 @@
 package com.frozendo.java9.optional;
 
-import com.frozendo.java8.entity.Product;
+import com.frozendo.entity.Product;
 
 import java.util.List;
 import java.util.Optional;

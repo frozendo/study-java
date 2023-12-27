@@ -1,6 +1,6 @@
 package com.frozendo.java9.streams.streamofnullable;
 
-import com.frozendo.java8.entity.Product;
+import com.frozendo.entity.Product;
 
 import java.util.ArrayList;
 import java.util.List;

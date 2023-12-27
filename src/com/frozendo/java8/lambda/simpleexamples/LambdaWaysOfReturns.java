@@ -1,6 +1,6 @@
 package com.frozendo.java8.lambda.simpleexamples;
 
-import com.frozendo.java8.entity.Product;
+import com.frozendo.entity.Product;
 import com.frozendo.java8.lambda.interfaces.ProductPriceMultiplier;
 
 public class LambdaWaysOfReturns {

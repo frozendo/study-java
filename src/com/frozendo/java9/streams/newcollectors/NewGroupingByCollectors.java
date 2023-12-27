@@ -1,6 +1,6 @@
 package com.frozendo.java9.streams.newcollectors;
 
-import com.frozendo.java8.entity.Employee;
+import com.frozendo.entity.Employee;
 
 import java.util.List;
 import java.util.Map;

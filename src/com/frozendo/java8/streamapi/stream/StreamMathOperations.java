@@ -1,6 +1,6 @@
 package com.frozendo.java8.streamapi.stream;
 
-import com.frozendo.java8.entity.Product;
+import com.frozendo.entity.Product;
 
 import java.util.Comparator;
 import java.util.List;

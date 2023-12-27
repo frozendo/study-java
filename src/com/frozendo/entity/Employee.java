@@ -1,4 +1,4 @@
-package com.frozendo.java8.entity;
+package com.frozendo.entity;
 
 import java.util.ArrayList;
 import java.util.List;
