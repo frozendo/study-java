@@ -7,6 +7,7 @@ import java.util.List;
 public class Subject {
     private final String name;
     private final Double grade;
+    private final Integer minimumGradeToPass;
 
     public Subject(String name, Double grade) {
         var df = new DecimalFormat("#.##");
@@ -15,6 +16,7 @@ public class Subject {
 
         this.name = name;
         this.grade = Double.valueOf(formatGrade);
+        this.minimumGradeToPass =createMinimumGrade();
     }
 
     public String getName() {
@@ -25,12 +27,23 @@ public class Subject {
         return grade;
     }
 
+    public Integer getMinimumGradeToPass() {
+        return minimumGradeToPass;
+    }
+
     @Override
     public String toString() {
         return "Subject{" +
                 "name='" + name + '\'' +
                 ", grade=" + grade +
                 '}';
+    }
+
+    private int createMinimumGrade() {
+        double randNumber = Math.random();
+        randNumber = (randNumber * 4) + 3;
+
+        return (int)randNumber;
     }
 
     public static List<Subject> buildSubjectsAndGradeList() {
