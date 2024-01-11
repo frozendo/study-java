@@ -31,6 +31,7 @@ If you want to read the articles related to each version, go to https://frozendo
 
 * [Optional - orElseThrow](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java10/orelsethrow)
 * [Streams - Unmodifiable Collections](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java10/streams)
+* [Local Variable Type Inference](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java10/localvariableinference)
 
 ## Java 11
 
@@ -39,7 +40,16 @@ If you want to read the articles related to each version, go to https://frozendo
 ## Java 12
 
 * [Teeing Collector](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java12/teeingcollector)
+ 
+## Java 14
+
+[Switch Expression](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java14/switchexpression)
+
+## Java 15
+
+[Text Block](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java15/textBlock)
 
 ## Java 16
 
+* [Pattern Matching for instance of](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java16/patternmatch)
 * [Streams - Map Multi](https://github.com/frozendo/study-java/tree/main/src/com/frozendo/java16/streammapmulti)
